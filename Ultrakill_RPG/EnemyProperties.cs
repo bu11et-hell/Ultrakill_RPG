@@ -120,7 +120,7 @@ namespace Ultrakill_RPG
             }
         }
 
-        public class voic EnemyCreatorRandom(int enemies){
+        public class voic EnemyCreatorRandom(int timesRepeated){
         for (int i = 0; i < enemies; i ++){
             Random rnd = new Random();
             
