@@ -40,7 +40,7 @@ namespace Ultrakill_RPG
     }
     public class V1 : Player
     {
-        public List<string> avavableAttackTypes = new List<string> {"Piercer (7.5 dmg)", "Projectile Boost (3.5 dmg)", "Railcannon (8 dmg)"};
+        public static List<string> avavableAttackTypes = new List<string> {"Piercer (7.5 dmg)", "Projectile Boost (3.5 dmg)", "Railcannon (8 dmg)"};
         public V1() : base(name: "V1", resistance: 0, healt: 100)
         {
 
@@ -48,7 +48,7 @@ namespace Ultrakill_RPG
     }
     public class V2 : Player
     {
-        public List<string> avavableAttackTypes = new List<string> { "Piercer (7.5 dmg)", "Projectile Boost (3.5 dmg)", "Railcannon (8 dmg)" };
+        public static List<string> avavableAttackTypes = new List<string> { "Piercer (7.5 dmg)", "Projectile Boost (3.5 dmg)", "Railcannon (8 dmg)" };
         public V2() : base(name: "V2", resistance: 65, healt: 100)
         {
 
@@ -56,14 +56,14 @@ namespace Ultrakill_RPG
     }
     public class Gutterman : Player
     {
-        public List<string> avavableAttackTypes = new List<string> {"Minigun (20 dmg)", "Melle Attack(35 dmg)"};
+        public static List<string> avavableAttackTypes = new List<string> {"Minigun (20 dmg)", "Melle Attack(35 dmg)"};
         public Gutterman() : base(name: "Gutterman", resistance: 75, healt: 25)
         {
         }
     }
     public class Guttertank : Player
     {
-        public List<string> avavableAttackTypes = new List<string> {"Rocket (35 dmg)", "Melle Attack(35 dmg)" };
+        public static List<string> avavableAttackTypes = new List<string> {"Rocket (35 dmg)", "Melle Attack(35 dmg)" };
         public Guttertank() : base(name: "Guttertank", resistance: 0, healt: 23)
         {
         }
