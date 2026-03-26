@@ -9,17 +9,20 @@ namespace Ultrakill_RPG
         protected double resistance;
         protected double healt;
 
+        List<AttackType> attackList;
+        
+
         public string UI_statusPlayerName;
         public void UI_nameAndStatus_Update()
         {
             this.UI_statusPlayerName = $"{name} {healt}";
         }
-        public Player(string name, double resistance, double healt)
+        public Player(string name, double resistance, double healt, List<AttackType> attackList)
         {
-
             this.name = name;
             this.resistance = resistance;
             this.healt = healt;
+            this.attackList = new attackList;
         }
         public string GetName()
         {
@@ -41,6 +44,7 @@ namespace Ultrakill_RPG
     public class V1 : Player
     {
         public static List<string> avavableAttackTypes = new List<string> {"Piercer (7.5 dmg)", "Projectile Boost (3.5 dmg)", "Railcannon (8 dmg)"};
+        //TODO: Use Attack List
         public V1() : base(name: "V1", resistance: 0, healt: 100)
         {
 
