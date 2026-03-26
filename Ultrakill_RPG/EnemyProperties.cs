@@ -15,7 +15,6 @@ namespace Ultrakill_RPG
         protected string name;
         protected double resistance;
         protected double health;
-        protected double damage;
 
         protected string UI_statusEnemyName;
         public void UI_NameAndStatus_Update()
@@ -26,12 +25,11 @@ namespace Ultrakill_RPG
         {
             this.health = this.health - damage;
         }
-        public Enemy(string name, double resistance, double health, double damage)
+        public Enemy(string name, double resistance, double health)
         {
             this.name = name;
             this.resistance = resistance;
             this.health = health;
-            this.damage = damage;
         }
         public string GetName()
         {
@@ -45,56 +43,52 @@ namespace Ultrakill_RPG
         {
             return this.health;
         }
-        public double GetDamage() 
-        {
-            return this.damage;
-        }
     }
     internal class Filth : Enemy
     {
-        public Filth() : base(name : "Filth", resistance : 0, health : 0.5, damage : 30)
+        public Filth() : base(name : "Filth", resistance : 0, health : 0.5)
         {
         }
 
         public void AttackMassage()
         {
-            Console.WriteLine($"{name} Leaps and bites dealing {damage} damage");
+            Console.WriteLine($"{name} Leaps and bites dealing  damage");
         }
     }
     internal class Stray : Enemy
     {
 
-        public Stray() : base(name : "Stray", resistance : 0, health : 1.5, damage: 25)
+        public Stray() : base(name : "Stray", resistance : 0, health : 1.5)
         {
         }
 
         public void AttackMassage()
         {
-            Console.WriteLine($"Throws a hellorb and {damage} deals");
+            Console.WriteLine($"Throws a hellorb and  deals");
         }
     }
     internal class Schism : Enemy
     {
 
-        public Schism() : base(name: "Schism", resistance: 0, health: 5, damage: 25)
+        public Schism() : base(name: "Schism", resistance: 0, health: 5)
         {
         }
 
         public void AttackMassage()
         {
-            Console.WriteLine($"Throws a hellorb and {damage} deals");
+            Console.WriteLine($"Throws a hellorb and  deals");
         }
     }
     internal class Cerberus : Enemy
     {
 
-        public Cerberus() : base(name: "Cererus", resistance: 0, health: 22, damage: 25)
+        public Cerberus() : base(name: "Cererus", resistance: 0, health: 22)
         {
         }
 
         public void AttackMassage()
         {
-            Console.WriteLine($"Throws a hellorb and {damage} deals");
+            Console.WriteLine($"Throws a hellorb and  deals");
         }
     }
 

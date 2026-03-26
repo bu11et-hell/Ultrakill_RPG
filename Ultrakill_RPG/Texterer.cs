@@ -45,20 +45,29 @@ namespace Ultrakill_RPG
         }
         public static void GameStartText()
         {
+            Console.Clear();
             Console.WriteLine("LET THE GAME START!!!\n\nSelect options by typing in their coresponding number");
         }
         public void PlayerSelectionMenu()
         {
             int i = 1;
             int selectedPlayer;
+            Console.WriteLine();
             foreach (Player player in PlayerList.players)
             {
                 Console.WriteLine(i + player.GetUIStatusPlayerName());
                 i++;
             }
             selectedPlayer = int.Parse(Console.ReadLine());
-            if (selectedPlayer < 1)
+            if (selectedPlayer < 1 && selectedPlayer >= PlayerList.players.Count())
             {
+                PlayerList.players[selectedPlayer].;
+            }
+            else
+            {
+                Console.Clear();
+                Console.WriteLine("Select an actual player");
+                PlayerSelectionMenu();
             }
         }
     }
