@@ -1,0 +1,1 @@
+Finish the enemy add list function and continue with player class and attack functions + interface and also use selection in a "find out who is attacking who program"
