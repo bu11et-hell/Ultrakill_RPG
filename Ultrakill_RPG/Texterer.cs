@@ -84,7 +84,7 @@ namespace Ultrakill_RPG
             {
                 foreach (string attackType in V1.avavableAttackTypes)
                 {
-                    Console.WriteLine($"{i} {attackType}"));
+                    Console.WriteLine($"{i} {attackType}");
                     i++;
                 }
                 i = 1;
