@@ -9,17 +9,20 @@ namespace Ultrakill_RPG
         protected double resistance;
         protected double health;
 
+        List<AttackType> attackList;
+        
+
         public string UI_statusPlayerName;
         public void UI_nameAndStatus_Update()
         {
             this.UI_statusPlayerName = $"{name} Health: {health}";
         }
-        public Player(string name, double resistance, double health)
+        public Player(string name, double resistance, double health, List<AttackType> attackList)
         {
-
             this.name = name;
             this.resistance = resistance;
-            this.health = health;
+            this.healt = health;
+            this.attackList = new attackList;
         }
         public string GetName()
         {
