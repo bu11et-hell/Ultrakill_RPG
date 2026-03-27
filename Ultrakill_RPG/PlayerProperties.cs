@@ -17,13 +17,22 @@ namespace Ultrakill_RPG
         {
             this.UI_statusPlayerName = $"{name} Health: {health}";
         }
+        
         public Player(string name, double resistance, double health, List<AttackType> attackList)
         {
             this.name = name;
             this.resistance = resistance;
-            this.healt = health;
-            this.attackList = new attackList;
+            this.health = health;
+            this.attackList = attackList;
         }
+        /*
+        public Player(string name, double resistance, double health)
+        {
+            this.name = name;
+            this.resistance = resistance;
+            this.health = health;
+        }
+        */
         public string GetName()
         {
             return this.name;
@@ -40,34 +49,35 @@ namespace Ultrakill_RPG
         {
             return this.UI_statusPlayerName;
         }
+
+        public List<AttackType> GetAttackList()
+        {
+            return attackList;
+        }
     }
     public class V1 : Player
     {
-        public static List<string> avavableAttackTypes = new List<string> {"Piercer (7.5 dmg)", "Projectile Boost (3.5 dmg)", "Railcannon (8 dmg)"};
-        public V1() : base(name: "V1", resistance: 0, health: 100)
+        public V1() : base(name: "V1", resistance: 0, health: 100, attackList : new List<AttackType> { new AttackType("Piercer", 7.5), new AttackType("Projectile Boost", 3.5), new AttackType("Projectile Boost", 3.5), new AttackType("Railcannon", 8)})
         {
 
         }
     }
     public class V2 : Player
     {
-        public static List<string> avavableAttackTypes = new List<string> { "Piercer (7.5 dmg)", "Projectile Boost (3.5 dmg)", "Railcannon (8 dmg)" };
-        public V2() : base(name: "V2", resistance: 65, health: 100)
+        public V2() : base(name: "V2", resistance: 65, health: 100, attackList : new List<AttackType> { new AttackType("Piercer", 7.5), new AttackType("Projectile Boost", 3.5), new AttackType("Projectile Boost", 3.5), new AttackType("Railcannon", 8)})
         {
 
         }
     }
     public class Gutterman : Player
     {
-        public static List<string> avavableAttackTypes = new List<string> {"Minigun (20 dmg)", "Melle Attack(35 dmg)"};
-        public Gutterman() : base(name: "Gutterman", resistance: 75, health: 25)
+        public Gutterman() : base(name: "Gutterman", resistance: 75, health: 25, attackList : new List<AttackType> {new AttackType("Minigun", 20), new AttackType("Melle Attack", 35)} )
         {
         }
     }
     public class Guttertank : Player
     {
-        public static List<string> avavableAttackTypes = new List<string> {"Rocket (35 dmg)", "Melle Attack/Faust Panzer(35 dmg)" };
-        public Guttertank() : base(name: "Guttertank", resistance: 0, health: 23)
+        public Guttertank() : base(name: "Guttertank", resistance: 0, health: 23, attackList : new List<AttackType> {new AttackType("Rocket", 35), new AttackType("Melle Attack", 35)})
         {
         }
     }

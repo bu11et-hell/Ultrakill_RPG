@@ -7,18 +7,17 @@ namespace Ultrakill_RPG
     public class AttackType
     {
       protected string name;
-      protected int damageDealth;
+      protected double damageDealth;
 
-      public Attack(string name, int damageDealth) {
+      public AttackType(string name, double damageDealth) {
         this.name = name;
         this.damageDealth = damageDealth;
       }
-
       public string GetAttackName(){
         return this.name;
       }
 
-      public int GetAttackDamage(){
+      public double GetAttackDamage(){
         return this.damageDealth;
       }
     }
