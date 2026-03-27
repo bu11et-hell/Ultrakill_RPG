@@ -96,19 +96,19 @@ namespace Ultrakill_RPG
     {
         public static void EnemyDeclarator(string enemyNameInput,int timesRepeated)
         {
-            if (enemyNameInput.ToLower() == "filth")
+            if (enemyNameInput.ToLower() == "filth" || enemyNameInput.ToLower() == "1")
             {
                 EnemyList.AddEnemy(new Filth(),timesRepeated);
             }
-            else if (enemyNameInput.ToLower() == "stray")
+            else if (enemyNameInput.ToLower() == "stray" || enemyNameInput.ToLower() == "2")
             {
                 EnemyList.AddEnemy(new Stray(),timesRepeated);
             }
-            else if (enemyNameInput.ToLower() == "schism")
+            else if (enemyNameInput.ToLower() == "schism" || enemyNameInput.ToLower() == "3")
             {
                 EnemyList.AddEnemy(new Schism(),timesRepeated);
             }
-            else if (enemyNameInput.ToLower() == "cerberus")
+            else if (enemyNameInput.ToLower() == "cerberus" || enemyNameInput.ToLower() == "4")
             {
                 EnemyList.AddEnemy(new Cerberus(),timesRepeated);
             }
@@ -128,19 +128,19 @@ namespace Ultrakill_RPG
             
             if (enemyInt == 1)
             {
-                EnemyList.AddEnemy(new Filth(),timesRepeated);
+                EnemyList.AddEnemy(new Filth(),i);
             }
             else if (enemyInt == 2)
             {
-                EnemyList.AddEnemy(new Stray(),timesRepeated);
+                EnemyList.AddEnemy(new Stray(),i);
             }
             else if (enemyInt == 3)
             {
-                EnemyList.AddEnemy(new Schism(),timesRepeated);
+                EnemyList.AddEnemy(new Schism(),i);
             }
             else if (enemyInt == 4)
             {
-                EnemyList.AddEnemy(new Cerberus(),timesRepeated);
+                EnemyList.AddEnemy(new Cerberus(),i);
             }
         }
     }

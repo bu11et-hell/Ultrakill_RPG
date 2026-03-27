@@ -33,6 +33,10 @@ namespace Ultrakill_RPG
         {
             return this.health;
         }
+        public string GetStats()
+        {
+            return $"Health: {this.health}\nResistance: {this.resistance}\n";
+        }
         public string GetUIStatusPlayerName()
         {
             return this.UI_statusPlayerName;
@@ -41,7 +45,7 @@ namespace Ultrakill_RPG
     public class V1 : Player
     {
         public static List<string> avavableAttackTypes = new List<string> {"Piercer (7.5 dmg)", "Projectile Boost (3.5 dmg)", "Railcannon (8 dmg)"};
-        public V1() : base(name: "V1", resistance: 0, health: 100)
+        public V1() : base(name: "v1", resistance: 0, health: 100)
         {
 
         }
@@ -49,7 +53,7 @@ namespace Ultrakill_RPG
     public class V2 : Player
     {
         public static List<string> avavableAttackTypes = new List<string> { "Piercer (7.5 dmg)", "Projectile Boost (3.5 dmg)", "Railcannon (8 dmg)" };
-        public V2() : base(name: "V2", resistance: 65, health: 100)
+        public V2() : base(name: "v2", resistance: 65, health: 100)
         {
 
         }
@@ -57,14 +61,14 @@ namespace Ultrakill_RPG
     public class Gutterman : Player
     {
         public static List<string> avavableAttackTypes = new List<string> {"Minigun (20 dmg)", "Melle Attack(35 dmg)"};
-        public Gutterman() : base(name: "Gutterman", resistance: 75, health: 25)
+        public Gutterman() : base(name: "gutterman", resistance: 75, health: 25)
         {
         }
     }
     public class Guttertank : Player
     {
         public static List<string> avavableAttackTypes = new List<string> {"Rocket (35 dmg)", "Melle Attack/Faust Panzer(35 dmg)" };
-        public Guttertank() : base(name: "Guttertank", resistance: 0, health: 23)
+        public Guttertank() : base(name: "guttertank", resistance: 0, health: 23)
         {
         }
     }
@@ -72,19 +76,19 @@ namespace Ultrakill_RPG
     {
         public static void PlayerDeclarator(string PlayerNameInput,int timesRepeated)
         {
-            if (PlayerNameInput.ToLower() == "v1")
+            if (PlayerNameInput.ToLower() == "v1" || PlayerNameInput.ToLower() == "1")
             {
                 PlayerList.AddPlayer(new V1(),timesRepeated);
             }
-            else if (PlayerNameInput.ToLower() == "v2")
+            else if (PlayerNameInput.ToLower() == "v2" || PlayerNameInput.ToLower() == "2")
             {
                 PlayerList.AddPlayer(new V2(),timesRepeated);
             }
-            else if (PlayerNameInput.ToLower() == "gutterman")
+            else if (PlayerNameInput.ToLower() == "gutterman" || PlayerNameInput.ToLower() == "3")
             {
                 PlayerList.AddPlayer(new Gutterman(),timesRepeated);
             }
-            else if (PlayerNameInput.ToLower() == "guttertank")
+            else if (PlayerNameInput.ToLower() == "guttertank" || PlayerNameInput.ToLower() == "4")
             {
                 PlayerList.AddPlayer(new Guttertank(),timesRepeated);
             }
