@@ -12,7 +12,7 @@ namespace Ultrakill_RPG
         public string UI_statusPlayerName;
         public void UI_nameAndStatus_Update()
         {
-            this.UI_statusPlayerName = $"{name} {health}";
+            this.UI_statusPlayerName = $"{name} Health: {health}";
         }
         public Player(string name, double resistance, double health)
         {

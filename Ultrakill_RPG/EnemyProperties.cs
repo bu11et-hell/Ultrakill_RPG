@@ -120,8 +120,8 @@ namespace Ultrakill_RPG
             }
         }
 
-        public class voic EnemyCreatorRandom(int timesRepeated){
-        for (int i = 0; i < enemies; i ++){
+        public void EnemyCreatorRandom(int timesRepeated){
+        for (int i = 0; i < timesRepeated; i ++){
             Random rnd = new Random();
             
             int enemyInt = rnd.Next(1, 4);

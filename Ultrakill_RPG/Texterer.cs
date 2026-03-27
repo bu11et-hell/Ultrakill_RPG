@@ -60,12 +60,15 @@ namespace Ultrakill_RPG
             Console.WriteLine();
             foreach (Player player in PlayerList.players)
             {
-                Console.WriteLine($"{i} {player.GetUIStatusPlayerName()}");
+                player.UI_nameAndStatus_Update();
+                Console.WriteLine($"{i}) {player.GetUIStatusPlayerName()}");
                 i++;
             }
             i = 1;
+            Console.WriteLine();
+            Console.Write("Select Player: ");
             selectedPlayer = int.Parse(Console.ReadLine());
-            if (selectedPlayer-1 < 0 && selectedPlayer > PlayerList.players.Count())
+            if (selectedPlayer-1 < 0 || selectedPlayer > PlayerList.players.Count())
             {
                 Console.Clear();
                 Console.WriteLine("Select an actual player");
@@ -80,7 +83,7 @@ namespace Ultrakill_RPG
         {
             int i = 1;
 
-            if (PlayerList.players[selectedPlayer].GetName() == "V1")
+            if (PlayerList.players[selectedPlayer-1].GetName() == "V1")
             {
                 foreach (string attackType in V1.avavableAttackTypes)
                 {
@@ -89,7 +92,7 @@ namespace Ultrakill_RPG
                 }
                 i = 1;
             }
-            else if (PlayerList.players[selectedPlayer].GetName() == "V2")
+            else if (PlayerList.players[selectedPlayer-1].GetName() == "V2")
             {
                 foreach (string attackType in V1.avavableAttackTypes)
                 {
@@ -98,7 +101,7 @@ namespace Ultrakill_RPG
                 }
                 i = 1;
             }
-            else if (PlayerList.players[selectedPlayer].GetName() == "Gutterman")
+            else if (PlayerList.players[selectedPlayer-1].GetName() == "Gutterman")
             {
                 foreach (string attackType in V1.avavableAttackTypes)
                 {
@@ -107,7 +110,7 @@ namespace Ultrakill_RPG
                 }
                 i = 1;
             }
-            else if (PlayerList.players[selectedPlayer].GetName() == "Guttertank")
+            else if (PlayerList.players[selectedPlayer-1].GetName() == "Guttertank")
             {
                 foreach (string attackType in V1.avavableAttackTypes)
                 {
