@@ -49,6 +49,10 @@ namespace Ultrakill_RPG
         {
 
         }
+        public int GetNumberOfAttacks()
+        {
+            return avavableAttackTypes.Count;
+        }
     }
     public class V2 : Player
     {
@@ -57,12 +61,21 @@ namespace Ultrakill_RPG
         {
 
         }
+        public int GetNumberOfAttacks()
+        {
+            return avavableAttackTypes.Count;
+        }
     }
     public class Gutterman : Player
     {
         public static List<string> avavableAttackTypes = new List<string> {"Minigun (20 dmg)", "Melle Attack(35 dmg)"};
         public Gutterman() : base(name: "gutterman", resistance: 75, health: 25)
         {
+
+        }
+        public int GetNumberOfAttacks()
+        {
+            return avavableAttackTypes.Count;
         }
     }
     public class Guttertank : Player
@@ -70,6 +83,11 @@ namespace Ultrakill_RPG
         public static List<string> avavableAttackTypes = new List<string> {"Rocket (35 dmg)", "Melle Attack/Faust Panzer(35 dmg)" };
         public Guttertank() : base(name: "guttertank", resistance: 0, health: 23)
         {
+
+        }
+        public int GetNumberOfAttacks()
+        {
+            return avavableAttackTypes.Count;
         }
     }
     public class PlayerCreator
