@@ -14,6 +14,9 @@ namespace Ultrakill_RPG
             Texterer.InputPlayerNaming();
             //Game starts here
             Texterer.GameStartText();
+            //Player selection
+            Texterer.PlayerSelectionMenu();
+            Texterer.PlayerActionsMenu();
         }
     }
 }
