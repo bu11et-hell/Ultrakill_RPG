@@ -94,7 +94,7 @@ namespace Ultrakill_RPG
 
     public class EnemyCreator
     {
-        public static void EnemyDeclorator(string enemyNameInput,int timesRepeated)
+        public static void EnemyDeclarator(string enemyNameInput,int timesRepeated)
         {
             if (enemyNameInput.ToLower() == "filth")
             {
@@ -108,7 +108,7 @@ namespace Ultrakill_RPG
             {
                 EnemyList.AddEnemy(new Schism(),timesRepeated);
             }
-            else if (enemyNameInput.ToLower() == "Cerberus")
+            else if (enemyNameInput.ToLower() == "cerberus")
             {
                 EnemyList.AddEnemy(new Cerberus(),timesRepeated);
             }
@@ -119,7 +119,31 @@ namespace Ultrakill_RPG
                 Texterer.InputEnemyNaming();
             }
         }
-        
+
+        public void EnemyCreatorRandom(int timesRepeated){
+        for (int i = 0; i < timesRepeated; i ++){
+            Random rnd = new Random();
+            
+            int enemyInt = rnd.Next(1, 4);
+            
+            if (enemyInt == 1)
+            {
+                EnemyList.AddEnemy(new Filth(),timesRepeated);
+            }
+            else if (enemyInt == 2)
+            {
+                EnemyList.AddEnemy(new Stray(),timesRepeated);
+            }
+            else if (enemyInt == 3)
+            {
+                EnemyList.AddEnemy(new Schism(),timesRepeated);
+            }
+            else if (enemyInt == 4)
+            {
+                EnemyList.AddEnemy(new Cerberus(),timesRepeated);
+            }
+        }
+    }
 
         /*public void Creator(string nameInput, int enemyCount)
         {

@@ -7,7 +7,7 @@ namespace Ultrakill_RPG
     {
         protected string name;
         protected double resistance;
-        protected double healt;
+        protected double health;
 
         List<AttackType> attackList;
         
@@ -15,13 +15,13 @@ namespace Ultrakill_RPG
         public string UI_statusPlayerName;
         public void UI_nameAndStatus_Update()
         {
-            this.UI_statusPlayerName = $"{name} {healt}";
+            this.UI_statusPlayerName = $"{name} Health: {health}";
         }
-        public Player(string name, double resistance, double healt, List<AttackType> attackList)
+        public Player(string name, double resistance, double health, List<AttackType> attackList)
         {
             this.name = name;
             this.resistance = resistance;
-            this.healt = healt;
+            this.healt = health;
             this.attackList = new attackList;
         }
         public string GetName()
@@ -34,7 +34,7 @@ namespace Ultrakill_RPG
         }
         public double GetHealth()
         {
-            return this.healt;
+            return this.health;
         }
         public string GetUIStatusPlayerName()
         {
@@ -44,8 +44,7 @@ namespace Ultrakill_RPG
     public class V1 : Player
     {
         public static List<string> avavableAttackTypes = new List<string> {"Piercer (7.5 dmg)", "Projectile Boost (3.5 dmg)", "Railcannon (8 dmg)"};
-        //TODO: Use Attack List
-        public V1() : base(name: "V1", resistance: 0, healt: 100)
+        public V1() : base(name: "V1", resistance: 0, health: 100)
         {
 
         }
@@ -53,7 +52,7 @@ namespace Ultrakill_RPG
     public class V2 : Player
     {
         public static List<string> avavableAttackTypes = new List<string> { "Piercer (7.5 dmg)", "Projectile Boost (3.5 dmg)", "Railcannon (8 dmg)" };
-        public V2() : base(name: "V2", resistance: 65, healt: 100)
+        public V2() : base(name: "V2", resistance: 65, health: 100)
         {
 
         }
@@ -61,34 +60,34 @@ namespace Ultrakill_RPG
     public class Gutterman : Player
     {
         public static List<string> avavableAttackTypes = new List<string> {"Minigun (20 dmg)", "Melle Attack(35 dmg)"};
-        public Gutterman() : base(name: "Gutterman", resistance: 75, healt: 25)
+        public Gutterman() : base(name: "Gutterman", resistance: 75, health: 25)
         {
         }
     }
     public class Guttertank : Player
     {
-        public static List<string> avavableAttackTypes = new List<string> {"Rocket (35 dmg)", "Melle Attack(35 dmg)" };
-        public Guttertank() : base(name: "Guttertank", resistance: 0, healt: 23)
+        public static List<string> avavableAttackTypes = new List<string> {"Rocket (35 dmg)", "Melle Attack/Faust Panzer(35 dmg)" };
+        public Guttertank() : base(name: "Guttertank", resistance: 0, health: 23)
         {
         }
     }
     public class PlayerCreator
     {
-        public static void PlayerDeclorator(string enemyNameInput,int timesRepeated)
+        public static void PlayerDeclarator(string PlayerNameInput,int timesRepeated)
         {
-            if (enemyNameInput.ToLower() == "v1")
+            if (PlayerNameInput.ToLower() == "v1")
             {
                 PlayerList.AddPlayer(new V1(),timesRepeated);
             }
-            else if (enemyNameInput.ToLower() == "v2")
+            else if (PlayerNameInput.ToLower() == "v2")
             {
                 PlayerList.AddPlayer(new V2(),timesRepeated);
             }
-            else if (enemyNameInput.ToLower() == "gutterman")
+            else if (PlayerNameInput.ToLower() == "gutterman")
             {
                 PlayerList.AddPlayer(new Gutterman(),timesRepeated);
             }
-            else if (enemyNameInput.ToLower() == "guttertank")
+            else if (PlayerNameInput.ToLower() == "guttertank")
             {
                 PlayerList.AddPlayer(new Guttertank(),timesRepeated);
             }
