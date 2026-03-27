@@ -29,7 +29,7 @@ namespace Ultrakill_RPG
             for (int i = 0; i < playerCount; i++)
             {
                 playerNameInput = Console.ReadLine();
-                PlayerCreator.PlayerDeclorator(playerNameInput, i);
+                PlayerCreator.PlayerDeclarator(playerNameInput, i);
             }
         }
         //Same but for the enemies
@@ -45,7 +45,7 @@ namespace Ultrakill_RPG
             for (int i = 0; i < enemyCount; i++)
             {
                 enemyNameInput = Console.ReadLine();
-                EnemyCreator.EnemyDeclorator(enemyNameInput, i);
+                EnemyCreator.EnemyDeclarator(enemyNameInput, i);
             }
         }
         public static void GameStartText()

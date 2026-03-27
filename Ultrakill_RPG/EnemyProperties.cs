@@ -94,7 +94,7 @@ namespace Ultrakill_RPG
 
     public class EnemyCreator
     {
-        public static void EnemyDeclorator(string enemyNameInput,int timesRepeated)
+        public static void EnemyDeclarator(string enemyNameInput,int timesRepeated)
         {
             if (enemyNameInput.ToLower() == "filth")
             {
@@ -108,7 +108,7 @@ namespace Ultrakill_RPG
             {
                 EnemyList.AddEnemy(new Schism(),timesRepeated);
             }
-            else if (enemyNameInput.ToLower() == "Cerberus")
+            else if (enemyNameInput.ToLower() == "cerberus")
             {
                 EnemyList.AddEnemy(new Cerberus(),timesRepeated);
             }
