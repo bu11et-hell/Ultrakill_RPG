@@ -121,7 +121,6 @@ namespace Ultrakill_RPG
         public static void PlayerActionsMenu()
         {
             int i = 1;
-            int getBackToActionMenu;
 
             foreach (string actions in menuActions)
             {
@@ -143,26 +142,33 @@ namespace Ultrakill_RPG
                     Console.Clear();
                     PlayerAttacksMenu();
                 }
-                else if (menuActions[selectedPlayerAction - 1].ToLower() == "stats")
-                {
-                    Console.Clear();
-                    Console.WriteLine(selectedPlayer.GetStats() + "type 1 to get back to the action list");
-                    getBackToActionMenu = int.Parse(Console.ReadLine());
-                    if (getBackToActionMenu == 1)
-                    {
-                        Console.Clear();
-                        getBackToActionMenu = 0;
-                        PlayerActionsMenu();
-                    }
-                    else
-                    {
-                        Console.WriteLine("type 1 to get back");
-                    }
-                }
                 else if (menuActions[selectedPlayerAction - 1].ToLower() == "back")
                 {
                     Console.Clear();
                     PlayerSelectionMenu();
+                }
+            }
+        }
+        public static void PlayerStatViewerMenu()
+        {
+            int getBackToActionMenu;
+
+            if (menuActions[selectedPlayerAction - 1].ToLower() == "stats")
+            {
+                Console.Clear();
+                Console.WriteLine($"{selectedPlayer.GetStats()} type 1 to get back to the action list");
+                getBackToActionMenu = int.Parse(Console.ReadLine());
+                if (getBackToActionMenu == 1)
+                {
+                    Console.Clear();
+                    getBackToActionMenu = 0;
+                    PlayerActionsMenu();
+                }
+                else
+                {
+                    Console.Clear();
+                    Console.WriteLine("type 1 to get back");
+                    PlayerStatViewerMenu();
                 }
             }
         }
@@ -174,38 +180,38 @@ namespace Ultrakill_RPG
             Console.Clear();
             int i = 1;
 
-            if (selectedPlayer.GetName() == "v1")
+            if (selectedPlayer.GetName().ToLower() == "v1")
             {
                 foreach (AttackType attackType in selectedPlayer.GetAttackList())
                 {
-                    Console.WriteLine($"{i}) {attackType.GetAttackName()}");
+                    Console.WriteLine($"{i}) {attackType.GetAttackName()} ({attackType.GetAttackDamage()} dmg)");
                     i++;
                 }
                 i = 1;
             }
-            else if (selectedPlayer.GetName() == "v2")
+            else if (selectedPlayer.GetName().ToLower() == "v2")
             {
                 foreach (AttackType attackType in selectedPlayer.GetAttackList())
                 {
-                    Console.WriteLine($"{i}) {attackType.GetAttackName()}");
+                    Console.WriteLine($"{i}) {attackType.GetAttackName()} ({attackType.GetAttackDamage()} dmg)");
                     i++;
                 }
                 i = 1;
             }
-            else if (selectedPlayer .GetName() == "gutterman")
+            else if (selectedPlayer .GetName().ToLower() == "gutterman")
             {
                 foreach (AttackType attackType in selectedPlayer.GetAttackList())
                 {
-                    Console.WriteLine($"{i}) {attackType.GetAttackName()}");
+                    Console.WriteLine($"{i}) {attackType.GetAttackName()} ({attackType.GetAttackDamage()} dmg)");
                     i++;
                 }
                 i = 1;
             }
-            else if (selectedPlayer.GetName() == "guttertank")
+            else if (selectedPlayer.GetName().ToLower() == "guttertank")
             {
                 foreach (AttackType attackType in selectedPlayer.GetAttackList())
                 {
-                    Console.WriteLine($"{i}) {attackType.GetAttackName()}");
+                    Console.WriteLine($"{i}) {attackType.GetAttackName()} ({attackType.GetAttackDamage()} dmg)");
                     i++;
                 }
                 i = 1;
@@ -218,13 +224,16 @@ namespace Ultrakill_RPG
                 Texterer.PlayerAttacksMenu();
             }
             else
-            { }
+            {
+                EnemySelectionMenu();
+            }
         }
         /// <summary>
         /// Select the enemy which the selected player is going to attack.
         /// </summary>
         public static void EnemySelectionMenu()
         {
+            Console.Clear();
             int i = 1;
 
             Console.WriteLine();
@@ -236,7 +245,7 @@ namespace Ultrakill_RPG
             }
             i = 1;
             Console.WriteLine();
-            Console.Write("Select Player: ");
+            Console.Write("Select Enemy: ");
             selectedEnemyInt = int.Parse(Console.ReadLine());
             if (selectedEnemyInt - 1 < 0 || selectedEnemyInt > EnemyList.enemies.Count())
             {
@@ -248,23 +257,54 @@ namespace Ultrakill_RPG
             {
                 Console.Clear();
                 selectedEnemy = EnemyList.enemies[selectedEnemyInt - 1];
-                
+                EnemyActionMenu();
             }
         }
-        public static void enemyActionMenu()
+        public static void EnemyActionMenu()
         {
             int i = 1;
-            int GetBackToOptions = 0;
+            int getBackToOptions = 0;
 
             foreach (string option in enemyOptions)
             {
-                Console.WriteLine($"{i} {option}");
+                Console.WriteLine($"{i}) {option}");
+                i++;
             }
             selectedEnemyOption = int.Parse(Console.ReadLine());
-            if (selectedEnemyOption - 1 < 0 || selectedEnemyOption > selectedEnemy.attackList.Count())
+            if (selectedEnemyOption - 1 < 0 || selectedEnemyOption > enemyOptions.Length)
             {
                 Console.Clear();
                 Console.WriteLine("Selecet propper option");
+            }
+            else
+            {
+                if (enemyOptions[selectedEnemyOption - 1] == "attack?")
+                {
+                    GameLogic.AttackCheck();
+                }
+                else if (enemyOptions[selectedEnemyOption - 1] == "view stats")
+                {
+                    Console.Clear();
+                    Console.WriteLine($"{selectedEnemy.GetStats()} type 1 to get back to the action list");
+                    getBackToOptions = int.Parse(Console.ReadLine());
+                    if (getBackToOptions == 1)
+                    {
+                        Console.Clear();
+                        getBackToOptions = 0;
+                        EnemyActionMenu();
+                    }
+                    else
+                    {
+                        Console.Clear();
+                        Console.WriteLine("type 1 to get back");
+                        Console.WriteLine($"{selectedEnemy.GetStats()} type 1 to get back to the action list");
+                    }
+                }
+                else if (enemyOptions[selectedEnemyOption - 1] == "back")
+                {
+                    Console.Clear();
+                    EnemySelectionMenu();
+                }
             }
         }
     }
