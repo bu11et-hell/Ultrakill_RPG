@@ -178,7 +178,7 @@ namespace Ultrakill_RPG
             {
                 foreach (AttackType attackType in selectedPlayer.GetAttackList())
                 {
-                    Console.WriteLine($"{i}) {attackType.GetAttackName()}");
+                    Console.WriteLine($"{i}) {attackType.GetAttackName()} ({attackType.GetAttackDamage()} dmg)");
                     i++;
                 }
                 i = 1;
@@ -187,7 +187,7 @@ namespace Ultrakill_RPG
             {
                 foreach (AttackType attackType in selectedPlayer.GetAttackList())
                 {
-                    Console.WriteLine($"{i}) {attackType.GetAttackName()}");
+                    Console.WriteLine($"{i}) {attackType.GetAttackName()} ({attackType.GetAttackDamage()} dmg)");
                     i++;
                 }
                 i = 1;
@@ -196,7 +196,7 @@ namespace Ultrakill_RPG
             {
                 foreach (AttackType attackType in selectedPlayer.GetAttackList())
                 {
-                    Console.WriteLine($"{i}) {attackType.GetAttackName()}");
+                    Console.WriteLine($"{i}) {attackType.GetAttackName()} ({attackType.GetAttackDamage()} dmg)");
                     i++;
                 }
                 i = 1;
@@ -205,7 +205,7 @@ namespace Ultrakill_RPG
             {
                 foreach (AttackType attackType in selectedPlayer.GetAttackList())
                 {
-                    Console.WriteLine($"{i}) {attackType.GetAttackName()} ()");
+                    Console.WriteLine($"{i}) {attackType.GetAttackName()} ({attackType.GetAttackDamage()} dmg)");
                     i++;
                 }
                 i = 1;
