@@ -63,7 +63,7 @@ namespace Ultrakill_RPG
         /// Gets the GameObject's name and health in a string format for display in the UI.
         /// </summary>
         /// <returns>A string containing the GameObject's name and health.</returns>
-        public string GetUIStatusEnemyName()
+        public string GetUIStatusName()
         {
             return this.UI_statusName;
         }
