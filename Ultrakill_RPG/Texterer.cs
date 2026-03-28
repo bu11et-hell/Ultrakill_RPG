@@ -10,9 +10,10 @@ namespace Ultrakill_RPG
     public class Texterer
     {
         public static int selectedPlayerAction;
-
-        public static int selectedPlayerInt;
+        //Player to be used in all checks
         public static Player selectedPlayer;
+        //Temporary ones to be used in defining the Player type ones
+        public static int selectedPlayerInt;
         public static int selectedAttack;
         public static int selectedEnemy;
 
