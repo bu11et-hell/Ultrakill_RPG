@@ -45,6 +45,10 @@ namespace Ultrakill_RPG
         {
             return this.health;
         }
+        public string GetStats()
+        {
+            return $"Health: {this.health}\nResistance: {this.resistance}\n";
+        }
         public string GetUIStatusPlayerName()
         {
             return this.UI_statusPlayerName;
@@ -85,19 +89,19 @@ namespace Ultrakill_RPG
     {
         public static void PlayerDeclarator(string PlayerNameInput,int timesRepeated)
         {
-            if (PlayerNameInput.ToLower() == "v1")
+            if (PlayerNameInput.ToLower() == "v1" || PlayerNameInput.ToLower() == "1")
             {
                 PlayerList.AddPlayer(new V1(),timesRepeated);
             }
-            else if (PlayerNameInput.ToLower() == "v2")
+            else if (PlayerNameInput.ToLower() == "v2" || PlayerNameInput.ToLower() == "2")
             {
                 PlayerList.AddPlayer(new V2(),timesRepeated);
             }
-            else if (PlayerNameInput.ToLower() == "gutterman")
+            else if (PlayerNameInput.ToLower() == "gutterman" || PlayerNameInput.ToLower() == "3")
             {
                 PlayerList.AddPlayer(new Gutterman(),timesRepeated);
             }
-            else if (PlayerNameInput.ToLower() == "guttertank")
+            else if (PlayerNameInput.ToLower() == "guttertank" || PlayerNameInput.ToLower() == "4")
             {
                 PlayerList.AddPlayer(new Guttertank(),timesRepeated);
             }

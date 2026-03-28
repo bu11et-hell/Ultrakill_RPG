@@ -8,13 +8,15 @@ namespace Ultrakill_RPG
 {
     public class Texterer
     {
+        public static int selectedPlayerAction;
+
         public static int selectedPlayer;
         public static int selectedAttack;
         public static int selectedEnemy;
 
         internal static int enemyCount;
         internal static int playerCount;
-        internal string[] menuActions = { "action", "Back", };
+        internal static string[] menuActions = {"attacks", "stats", "back"};
         internal bool playerCountRenderer = true;
         //Limit is set and is used in the loop for player object decloration
         public static void InputPlayerCount()
@@ -77,6 +79,7 @@ namespace Ultrakill_RPG
             else
             {
                 Console.Clear();
+                PlayerActionsMenu();
             }
         }
         public static void PlayerActionsMenu()
