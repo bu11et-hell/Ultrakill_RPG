@@ -20,6 +20,7 @@ namespace Ultrakill_RPG
         public static int selectedEnemyInt;
 
         internal static int enemyCount;
+        //Integare containing the number of players we have.
         internal static int playerCount;
         // String list of player actions.
         internal static string[] menuActions = {"attacks", "stats", "back"};
