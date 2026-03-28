@@ -82,10 +82,6 @@ namespace Ultrakill_RPG
         /// <summary>
         /// Selects a player to act with.
         /// </summary>
-        /// <summary>
-        /// Using foreach, it prints out all the players in the squad and their coresponding number. Then it checks what the input is by making assinging selectedPlayerInt
-        /// the value to be used in checks (if it valid) and to assign a selectedPlayer of Player type (as a shortcut) and to call the actionMenu
-        /// </summary>
         public static void PlayerSelectionMenu()
         {
             int i = 1;
