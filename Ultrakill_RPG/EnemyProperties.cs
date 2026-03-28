@@ -17,13 +17,9 @@ namespace Ultrakill_RPG
         protected double health;
 
         protected string UI_statusEnemyName;
-        public void UI_NameAndStatus_Update()
+        public string UI_nameAndStatus_Update()
         {
-            this.UI_statusEnemyName = $"{name} {health}";
-        }
-        public void TakingDamage(double damage)
-        {
-            this.health = this.health - damage;
+            return this.UI_statusEnemyName = $"{name} Health: {health}";
         }
         public Enemy(string name, double resistance, double health)
         {
@@ -42,6 +38,14 @@ namespace Ultrakill_RPG
         public double GetHealth() 
         {
             return this.health;
+        }
+        public string GetStats()
+        {
+            return $"Health: {this.health}\nResistance: {this.resistance}\n";
+        }
+        public string GetUIStatusEnemyName()
+        {
+            return this.UI_statusEnemyName;
         }
     }
     internal class Filth : Enemy
