@@ -121,7 +121,6 @@ namespace Ultrakill_RPG
         public static void PlayerActionsMenu()
         {
             int i = 1;
-            int getBackToActionMenu;
 
             foreach (string actions in menuActions)
             {
@@ -143,28 +142,33 @@ namespace Ultrakill_RPG
                     Console.Clear();
                     PlayerAttacksMenu();
                 }
-                else if (menuActions[selectedPlayerAction - 1].ToLower() == "stats")
-                {
-                    Console.Clear();
-                    Console.WriteLine($"{selectedPlayer.GetStats()} type 1 to get back to the action list");
-                    getBackToActionMenu = int.Parse(Console.ReadLine());
-                    if (getBackToActionMenu == 1)
-                    {
-                        Console.Clear();
-                        getBackToActionMenu = 0;
-                        PlayerActionsMenu();
-                    }
-                    else
-                    {
-                        Console.Clear();
-                        Console.WriteLine("type 1 to get back");
-                        Console.WriteLine($"{selectedPlayer.GetStats()} type 1 to get back to the action list");
-                    }
-                }
                 else if (menuActions[selectedPlayerAction - 1].ToLower() == "back")
                 {
                     Console.Clear();
                     PlayerSelectionMenu();
+                }
+            }
+        }
+        public static void PlayerStatViewerMenu()
+        {
+            int getBackToActionMenu;
+
+            if (menuActions[selectedPlayerAction - 1].ToLower() == "stats")
+            {
+                Console.Clear();
+                Console.WriteLine($"{selectedPlayer.GetStats()} type 1 to get back to the action list");
+                getBackToActionMenu = int.Parse(Console.ReadLine());
+                if (getBackToActionMenu == 1)
+                {
+                    Console.Clear();
+                    getBackToActionMenu = 0;
+                    PlayerActionsMenu();
+                }
+                else
+                {
+                    Console.Clear();
+                    Console.WriteLine("type 1 to get back");
+                    PlayerStatViewerMenu();
                 }
             }
         }
@@ -293,7 +297,7 @@ namespace Ultrakill_RPG
                     {
                         Console.Clear();
                         Console.WriteLine("type 1 to get back");
-                        Console.WriteLine($"{selectedEnemy.GetStats()} type 1 to get back to the action list")
+                        Console.WriteLine($"{selectedEnemy.GetStats()} type 1 to get back to the action list");
                     }
                 }
                 else if (enemyOptions[selectedEnemyOption - 1] == "back")
