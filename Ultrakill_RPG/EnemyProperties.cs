@@ -85,11 +85,7 @@ namespace Ultrakill_RPG
     /// </summary>
     internal class Filth : Enemy
     {
-        public Filth() : base(name: "Filth", resistance: 0, health: 0.5)
-        {
-        }
-
-        public void AttackMassage()
+        public Filth() : base(name: "Filth", resistance: 0, health: 0.5, attackList : new List<AttackType> { new AttackType("leap", 30), new AttackType("bite", 30)})
         {
         }
     }
@@ -99,11 +95,7 @@ namespace Ultrakill_RPG
     internal class Stray : Enemy
     {
 
-        public Stray() : base(name: "Stray", resistance: 0, health: 1.5)
-        {
-        }
-
-        public void AttackMassage()
+        public Stray() : base(name: "Stray", resistance: 0, health: 1.5, attackList : new List<AttackType> { new AttackType("hellorb", 25)})
         {
         }
     }
