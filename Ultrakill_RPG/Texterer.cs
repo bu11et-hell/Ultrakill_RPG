@@ -9,11 +9,14 @@ namespace Ultrakill_RPG
 {
     public class Texterer
     {
+        public static string[] enemyOptions = {"attack?", "show stats", "back"};
+
+        public static int selectedEnemyOption;
         public static int selectedPlayerAction;
         //Player to be used in all checks
-        public static Player selectedPlayer;
+        public static GameObject selectedPlayer;
         public static AttackType selectedAttack;
-        public static Enemy selectedEnemy;
+        public static GameObject selectedEnemy;
         //Temporary ones to be used in defining the Player type ones
         public static int selectedPlayerInt;
         public static int selectedAttackInt;
@@ -89,10 +92,10 @@ namespace Ultrakill_RPG
             int i = 1;
 
             Console.WriteLine();
-            foreach (Player player in PlayerList.players)
+            foreach (GameObject player in PlayerList.players)
             {
                 player.UI_nameAndStatus_Update();
-                Console.WriteLine($"{i}) {player.GetUIStatusPlayerName()}");
+                Console.WriteLine($"{i}) {player.GetUIStatusName()}");
                 i++;
             }
             i = 1;
@@ -127,31 +130,40 @@ namespace Ultrakill_RPG
             }
             i = 1;
             selectedPlayerAction = int.Parse(Console.ReadLine());
-            if (menuActions[selectedPlayerAction-1].ToLower() == "attacks")
+            if (selectedPlayerAction - 1 < 0 || selectedPlayerAction > menuActions.Length)
             {
                 Console.Clear();
-                PlayerAttacksMenu();
+                Console.WriteLine("not a valid option");
+                PlayerActionsMenu();
             }
-            else if (menuActions[selectedPlayerAction-1].ToLower() == "stats")
+            else
             {
-                Console.Clear();
-                Console.WriteLine(selectedPlayer.GetStats()+"type 1 to get back to the action list");
-                getBackToActionMenu = int.Parse(Console.ReadLine());
-                if (getBackToActionMenu == 1)
+                if (menuActions[selectedPlayerAction - 1].ToLower() == "attacks")
                 {
                     Console.Clear();
-                    getBackToActionMenu = 0;
-                    PlayerActionsMenu();
+                    PlayerAttacksMenu();
                 }
-                else
+                else if (menuActions[selectedPlayerAction - 1].ToLower() == "stats")
                 {
-                    Console.WriteLine("type 1 to get back");
+                    Console.Clear();
+                    Console.WriteLine(selectedPlayer.GetStats() + "type 1 to get back to the action list");
+                    getBackToActionMenu = int.Parse(Console.ReadLine());
+                    if (getBackToActionMenu == 1)
+                    {
+                        Console.Clear();
+                        getBackToActionMenu = 0;
+                        PlayerActionsMenu();
+                    }
+                    else
+                    {
+                        Console.WriteLine("type 1 to get back");
+                    }
                 }
-            }
-            else if (menuActions[selectedPlayerAction-1].ToLower() == "back")
-            {
-                Console.Clear();
-                PlayerSelectionMenu();
+                else if (menuActions[selectedPlayerAction - 1].ToLower() == "back")
+                {
+                    Console.Clear();
+                    PlayerSelectionMenu();
+                }
             }
         }
         /// <summary>
@@ -216,10 +228,10 @@ namespace Ultrakill_RPG
             int i = 1;
 
             Console.WriteLine();
-            foreach (Enemy enemy in EnemyList.enemies)
+            foreach (GameObject enemy in EnemyList.enemies)
             {
                 enemy.UI_nameAndStatus_Update();
-                Console.WriteLine($"{i}) {enemy.GetUIStatusEnemyName()}");
+                Console.WriteLine($"{i}) {enemy.GetUIStatusName()}");
                 i++;
             }
             i = 1;
@@ -237,6 +249,22 @@ namespace Ultrakill_RPG
                 Console.Clear();
                 selectedEnemy = EnemyList.enemies[selectedEnemyInt - 1];
                 
+            }
+        }
+        public static void enemyActionMenu()
+        {
+            int i = 1;
+            int GetBackToOptions = 0;
+
+            foreach (string option in enemyOptions)
+            {
+                Console.WriteLine($"{i} {option}");
+            }
+            selectedEnemyOption = int.Parse(Console.ReadLine());
+            if (selectedEnemyOption - 1 < 0 || selectedEnemyOption > selectedEnemy.attackList.Count())
+            {
+                Console.Clear();
+                Console.WriteLine("Selecet propper option");
             }
         }
     }

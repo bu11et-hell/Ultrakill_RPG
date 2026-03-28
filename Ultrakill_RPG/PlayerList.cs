@@ -9,14 +9,14 @@ namespace Ultrakill_RPG
     /// </summary>
     public class PlayerList
     {
-        public static List<Player> players = new List<Player>();
+        public static List<GameObject> players = new List<GameObject>();
 
         /// <summary>
         /// Adds a player to the list.
         /// </summary>
         /// <param name="playerObject">The player object to add.</param>
         /// <param name="timesRepeated">The index at which to insert the player.</param>
-        public static void AddPlayer(Player playerObject,int timesRepeated)
+        public static void AddPlayer(GameObject playerObject,int timesRepeated)
         {
             players.Insert(timesRepeated, playerObject);
         }
@@ -24,7 +24,7 @@ namespace Ultrakill_RPG
         ///  Removes a player from the list.
         /// </summary>
         /// <param name="playerObject"></param>
-        public static void RemovePlayer(Player playerObject)
+        public static void RemovePlayer(GameObject playerObject)
         {
             players.Remove(playerObject);
         }
