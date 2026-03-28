@@ -10,80 +10,10 @@ using Ultrakill_RPG;
 
 namespace Ultrakill_RPG
 {
-    public class Enemy
-    {
-
-        protected string name;
-        protected double resistance;
-        protected double health;
-
-        public List<AttackType> attackList;
-
-        protected string UI_statusEnemyName;
-        /// <summary>
-        /// Updated the enemy name and enterpolates the health for display in the UI.
-        /// </summary>
-        /// <returns>String that is the name.</returns>
-        public string UI_nameAndStatus_Update()
-        {
-            return this.UI_statusEnemyName = $"{name} Health: {health}";
-        }
-        public Enemy(string name, double resistance, double health, List<AttackType> attackList)
-        {
-            this.name = name;
-            this.resistance = resistance;
-            this.health = health;
-            this.attackList = attackList;
-        }
-        /// <summary>
-        /// Gets the enemy name
-        /// </summary>
-        /// <returns>The enemy name.</returns>
-        public string GetName()
-        {
-            return this.name;
-        }
-        /// <summary>
-        /// Gets the enemy resistance
-        /// </summary>
-        /// <returns>The enemy resistance.</returns>
-        public double GetResistance()
-        {
-            return this.resistance;
-        }
-        /// <summary>
-        /// Gets the enemy health
-        /// </summary>
-        /// <returns>The enemy health.</returns>
-        public double GetHealth()
-        {
-            return this.health;
-        }
-        /// <summary>
-        /// Gets the enemy stats in a string format for display in the UI.
-        /// </summary>
-        /// <returns>A string containing the enemy's stats.</returns>
-        public string GetStats()
-        {
-            return $"Health: {this.health}\nResistance: {this.resistance}\n";
-        }
-        /// <summary>
-        /// Gets the enemy's name and health in a string format for display in the UI.
-        /// </summary>
-        /// <returns>A string containing the enemy's name and health.</returns>
-        public string GetUIStatusEnemyName()
-        {
-            return this.UI_statusEnemyName;
-        }
-        public List<AttackType> GetAttackList()
-        {
-            return attackList;
-        }
-    }
     /// <summary>
     /// Defines the Filth enemy and its properties.
     /// </summary>
-    internal class Filth : Enemy
+    internal class Filth : GameObject
     {
         public Filth() : base(name: "Filth", resistance: 0, health: 0.5, attackList : new List<AttackType> { new AttackType("leap", 30), new AttackType("bite", 30)})
         {
@@ -92,7 +22,7 @@ namespace Ultrakill_RPG
     /// <summary>
     /// Defines the Stray enemy and its properties.
     /// </summary>
-    internal class Stray : Enemy
+    internal class Stray : GameObject
     {
 
         public Stray() : base(name: "Stray", resistance: 0, health: 1.5, attackList : new List<AttackType> { new AttackType("hellorb", 25)})
@@ -103,7 +33,7 @@ namespace Ultrakill_RPG
     /// Defines the Schism enemy and its properties.
     /// </summary>
 
-    internal class Schism : Enemy
+    internal class Schism : GameObject
     {
         public Schism() : base(name: "Schism", resistance: 0, health: 5, attackList : new List<AttackType> { new AttackType("vertical beam", 25), new AttackType("horizontal beam", 25)})
         {
@@ -112,7 +42,7 @@ namespace Ultrakill_RPG
     /// <summary>
     /// Defines the Cerberus enemy and its properties.
     /// </summary>
-    internal class Cerberus : Enemy
+    internal class Cerberus : GameObject
     {
         public Cerberus() : base(name: "Cererus", resistance: 0, health: 22, attackList : new List<AttackType> { new AttackType("stomp", 25), new AttackType("explosive orb", 20), new AttackType("Dash", 25)})
         {
