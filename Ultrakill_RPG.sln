@@ -1,0 +1,24 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ultrakill_RPG", "Ultrakill_RPG\Ultrakill_RPG.csproj", "{8EE6C618-CF80-F4D3-95EE-F13A4C1EE5F5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8EE6C618-CF80-F4D3-95EE-F13A4C1EE5F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8EE6C618-CF80-F4D3-95EE-F13A4C1EE5F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8EE6C618-CF80-F4D3-95EE-F13A4C1EE5F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8EE6C618-CF80-F4D3-95EE-F13A4C1EE5F5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1BB3B166-779F-43C5-8971-EA05B52D6986}
+	EndGlobalSection
+EndGlobal
