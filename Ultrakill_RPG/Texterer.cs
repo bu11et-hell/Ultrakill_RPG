@@ -71,7 +71,7 @@ namespace Ultrakill_RPG
             Console.WriteLine();
             Console.Write("Select Player: ");
             selectedPlayer = int.Parse(Console.ReadLine());
-            if (selectedPlayer-1 < 0 || selectedPlayer > PlayerList.players.Count())
+            if (selectedPlayer - 1 < 0 || selectedPlayer > PlayerList.players.Count())
             {
                 Console.Clear();
                 Console.WriteLine("Select an actual player");
@@ -127,41 +127,48 @@ namespace Ultrakill_RPG
             Console.Clear();
             int i = 1;
 
-            if (PlayerList.players[selectedPlayer-1].GetName() == "v1")
+            Player selected = PlayerList.players[Texterer.selectedPlayer-1];
+
+            if (selected.GetName() == "v1")
             {
-                foreach (string attackType in V1.avavableAttackTypes)
+                foreach (AttackType attackType in selected.GetAttackList())
                 {
-                    Console.WriteLine($"{i}) {attackType}");
+                    Console.WriteLine($"{i}) {attackType.GetAttackName()}");
                     i++;
                 }
                 i = 1;
             }
-            else if (PlayerList.players[selectedPlayer-1].GetName() == "v2")
+            else if (selected.GetName() == "v2")
             {
-                foreach (string attackType in V2.avavableAttackTypes)
+                foreach (AttackType attackType in selected.GetAttackList())
                 {
-                    Console.WriteLine($"{i}) {attackType}");
+                    Console.WriteLine($"{i}) {attackType.GetAttackName()}");
                     i++;
                 }
                 i = 1;
             }
-            else if (PlayerList.players[selectedPlayer-1].GetName() == "gutterman")
+            else if (selected.GetName() == "gutterman")
             {
-                foreach (string attackType in Gutterman.avavableAttackTypes)
+                foreach (AttackType attackType in selected.GetAttackList())
                 {
-                    Console.WriteLine($"{i}) {attackType}");
+                    Console.WriteLine($"{i}) {attackType.GetAttackName()}");
                     i++;
                 }
                 i = 1;
             }
-            else if (PlayerList.players[selectedPlayer-1].GetName() == "guttertank")
+            else if (selected.GetName() == "guttertank")
             {
-                foreach (string attackType in Guttertank.avavableAttackTypes)
+                foreach (AttackType attackType in selected.GetAttackList())
                 {
-                    Console.WriteLine($"{i}) {attackType}");
+                    Console.WriteLine($"{i}) {attackType.GetAttackName()}");
                     i++;
                 }
                 i = 1;
+            }
+            selectedAttack = int.Parse(Console.ReadLine());
+            if (selectedAttack - 1 < 0 )
+            {
+
             }
             selectedAttack = int.Parse(Console.ReadLine());
             if (selectedAttack - 1 < 0 )
