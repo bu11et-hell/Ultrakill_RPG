@@ -11,7 +11,8 @@ namespace Ultrakill_RPG
     {
         public static int selectedPlayerAction;
 
-        public static int selectedPlayer;
+        public static int selectedPlayerInt;
+        public static Player selectedPlayer;
         public static int selectedAttack;
         public static int selectedEnemy;
 
@@ -20,6 +21,7 @@ namespace Ultrakill_RPG
         internal static string[] menuActions = {"attacks", "stats", "back"};
         internal bool playerCountRenderer = true;
         //Limit is set and is used in the loop for player object decloration
+        
         public static void InputPlayerCount()
         {
             Console.WriteLine("How many players?");
@@ -70,8 +72,8 @@ namespace Ultrakill_RPG
             i = 1;
             Console.WriteLine();
             Console.Write("Select Player: ");
-            selectedPlayer = int.Parse(Console.ReadLine());
-            if (selectedPlayer - 1 < 0 || selectedPlayer > PlayerList.players.Count())
+            selectedPlayerInt = int.Parse(Console.ReadLine());
+            if (selectedPlayerInt - 1 < 0 || selectedPlayerInt > PlayerList.players.Count())
             {
                 Console.Clear();
                 Console.WriteLine("Select an actual player");
@@ -80,6 +82,7 @@ namespace Ultrakill_RPG
             else
             {
                 Console.Clear();
+                selectedPlayer = PlayerList.players[selectedPlayerInt - 1];
                 PlayerActionsMenu();
             }
         }
@@ -103,7 +106,7 @@ namespace Ultrakill_RPG
             else if (menuActions[selectedPlayerAction-1].ToLower() == "stats")
             {
                 Console.Clear();
-                Console.WriteLine(PlayerList.players[selectedPlayer-1].GetStats()+"type 1 to get back to the action list");
+                Console.WriteLine(selectedPlayer.GetStats()+"type 1 to get back to the action list");
                 getBackToActionMenu = int.Parse(Console.ReadLine());
                 if (getBackToActionMenu == 1)
                 {
@@ -127,38 +130,36 @@ namespace Ultrakill_RPG
             Console.Clear();
             int i = 1;
 
-            Player selected = PlayerList.players[Texterer.selectedPlayer-1];
-
-            if (selected.GetName() == "v1")
+            if (selectedPlayer.GetName() == "v1")
             {
-                foreach (AttackType attackType in selected.GetAttackList())
+                foreach (AttackType attackType in selectedPlayer.GetAttackList())
                 {
                     Console.WriteLine($"{i}) {attackType.GetAttackName()}");
                     i++;
                 }
                 i = 1;
             }
-            else if (selected.GetName() == "v2")
+            else if (selectedPlayer.GetName() == "v2")
             {
-                foreach (AttackType attackType in selected.GetAttackList())
+                foreach (AttackType attackType in selectedPlayer.GetAttackList())
                 {
                     Console.WriteLine($"{i}) {attackType.GetAttackName()}");
                     i++;
                 }
                 i = 1;
             }
-            else if (selected.GetName() == "gutterman")
+            else if (selectedPlayer .GetName() == "gutterman")
             {
-                foreach (AttackType attackType in selected.GetAttackList())
+                foreach (AttackType attackType in selectedPlayer.GetAttackList())
                 {
                     Console.WriteLine($"{i}) {attackType.GetAttackName()}");
                     i++;
                 }
                 i = 1;
             }
-            else if (selected.GetName() == "guttertank")
+            else if (selectedPlayer.GetName() == "guttertank")
             {
-                foreach (AttackType attackType in selected.GetAttackList())
+                foreach (AttackType attackType in selectedPlayer.GetAttackList())
                 {
                     Console.WriteLine($"{i}) {attackType.GetAttackName()}");
                     i++;
