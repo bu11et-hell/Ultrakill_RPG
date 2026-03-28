@@ -14,9 +14,9 @@ namespace Ultrakill_RPG
         public static int selectedEnemyOption;
         public static int selectedPlayerAction;
         //Player to be used in all checks
-        public static Player selectedPlayer;
+        public static GameObject selectedPlayer;
         public static AttackType selectedAttack;
-        public static Enemy selectedEnemy;
+        public static GameObject selectedEnemy;
         //Temporary ones to be used in defining the Player type ones
         public static int selectedPlayerInt;
         public static int selectedAttackInt;
@@ -92,10 +92,10 @@ namespace Ultrakill_RPG
             int i = 1;
 
             Console.WriteLine();
-            foreach (Player player in PlayerList.players)
+            foreach (GameObject player in PlayerList.players)
             {
                 player.UI_nameAndStatus_Update();
-                Console.WriteLine($"{i}) {player.GetUIStatusPlayerName()}");
+                Console.WriteLine($"{i}) {player.GetUIStatusName()}");
                 i++;
             }
             i = 1;
@@ -228,10 +228,10 @@ namespace Ultrakill_RPG
             int i = 1;
 
             Console.WriteLine();
-            foreach (Enemy enemy in EnemyList.enemies)
+            foreach (GameObject enemy in EnemyList.enemies)
             {
                 enemy.UI_nameAndStatus_Update();
-                Console.WriteLine($"{i}) {enemy.GetUIStatusEnemyName()}");
+                Console.WriteLine($"{i}) {enemy.GetUIStatusName()}");
                 i++;
             }
             i = 1;
