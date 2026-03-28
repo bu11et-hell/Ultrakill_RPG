@@ -11,12 +11,12 @@ namespace Ultrakill_RPG
     {
         public static void Main()
         {
-            PlayerList.players.Clear();
-            EnemyList.enemies.Clear();
             string loopGameQuiestion = "yes";
 
             while (loopGameQuiestion is "yes" or "y" or "1")
             {
+                PlayerList.players.Clear();
+                EnemyList.enemies.Clear();
                 Console.Clear();
                 Texterer.InputEnemyCount();
                 Texterer.InputEnemyNaming();
