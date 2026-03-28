@@ -17,6 +17,10 @@ namespace Ultrakill_RPG
         protected double health;
 
         protected string UI_statusEnemyName;
+        /// <summary>
+        /// Updated the enemy name and enterpolates the health for display in the UI.
+        /// </summary>
+        /// <returns>String that is the name.</returns>
         public string UI_nameAndStatus_Update()
         {
             return this.UI_statusEnemyName = $"{name} Health: {health}";
@@ -27,30 +31,53 @@ namespace Ultrakill_RPG
             this.resistance = resistance;
             this.health = health;
         }
+        /// <summary>
+        /// Gets the enemy name
+        /// </summary>
+        /// <returns>The enemy name.</returns>
         public string GetName()
         {
             return this.name;
         }
-        public double GetResistance() 
+        /// <summary>
+        /// Gets the enemy resistance
+        /// </summary>
+        /// <returns>The enemy resistance.</returns>
+        public double GetResistance()
         {
             return this.resistance;
         }
-        public double GetHealth() 
+        /// <summary>
+        /// Gets the enemy health
+        /// </summary>
+        /// <returns>The enemy health.</returns>
+        public double GetHealth()
         {
             return this.health;
         }
+        /// <summary>
+        /// Gets the enemy stats in a string format for display in the UI.
+        /// </summary>
+        /// <returns>A string containing the enemy's stats.</returns>
         public string GetStats()
         {
             return $"Health: {this.health}\nResistance: {this.resistance}\n";
         }
+        /// <summary>
+        /// Gets the enemy's name and health in a string format for display in the UI.
+        /// </summary>
+        /// <returns>A string containing the enemy's name and health.</returns>
         public string GetUIStatusEnemyName()
         {
             return this.UI_statusEnemyName;
         }
     }
+    /// <summary>
+    /// Defines the Filth enemy and its properties.
+    /// </summary>
     internal class Filth : Enemy
     {
-        public Filth() : base(name : "Filth", resistance : 0, health : 0.5)
+        public Filth() : base(name: "Filth", resistance: 0, health: 0.5)
         {
         }
 
@@ -59,10 +86,13 @@ namespace Ultrakill_RPG
             Console.WriteLine($"{name} Leaps and bites dealing  damage");
         }
     }
+    /// <summary>
+    /// Defines the Stray enemy and its properties.
+    /// </summary>
     internal class Stray : Enemy
     {
 
-        public Stray() : base(name : "Stray", resistance : 0, health : 1.5)
+        public Stray() : base(name: "Stray", resistance: 0, health: 1.5)
         {
         }
 
@@ -71,6 +101,10 @@ namespace Ultrakill_RPG
             Console.WriteLine($"Throws a hellorb and  deals");
         }
     }
+    /// <summary>
+    /// Defines the Schism enemy and its properties.
+    /// </summary>
+
     internal class Schism : Enemy
     {
 
@@ -83,6 +117,9 @@ namespace Ultrakill_RPG
             Console.WriteLine($"Throws a hellorb and  deals");
         }
     }
+    /// <summary>
+    /// Defines the Cerberus enemy and its properties.
+    /// </summary>
     internal class Cerberus : Enemy
     {
 
@@ -95,26 +132,29 @@ namespace Ultrakill_RPG
             Console.WriteLine($"Throws a hellorb and  deals");
         }
     }
-
     public class EnemyCreator
     {
-        public static void EnemyDeclarator(string enemyNameInput,int timesRepeated)
+        /// <summary>
+        /// Creates an enemy based on the name input and adds it to the enemy list.
+        /// <param name="enemyNameInput">The name of the enemy to create.</param>
+        /// <param name="timesRepeated">The number of times to create the enemy.</param>
+        public static void EnemyDeclarator(string enemyNameInput, int timesRepeated)
         {
             if (enemyNameInput.ToLower() == "filth" || enemyNameInput.ToLower() == "1")
             {
-                EnemyList.AddEnemy(new Filth(),timesRepeated);
+                EnemyList.AddEnemy(new Filth(), timesRepeated);
             }
             else if (enemyNameInput.ToLower() == "stray" || enemyNameInput.ToLower() == "2")
             {
-                EnemyList.AddEnemy(new Stray(),timesRepeated);
+                EnemyList.AddEnemy(new Stray(), timesRepeated);
             }
             else if (enemyNameInput.ToLower() == "schism" || enemyNameInput.ToLower() == "3")
             {
-                EnemyList.AddEnemy(new Schism(),timesRepeated);
+                EnemyList.AddEnemy(new Schism(), timesRepeated);
             }
             else if (enemyNameInput.ToLower() == "cerberus" || enemyNameInput.ToLower() == "4")
             {
-                EnemyList.AddEnemy(new Cerberus(),timesRepeated);
+                EnemyList.AddEnemy(new Cerberus(), timesRepeated);
             }
             else
             {
@@ -123,53 +163,35 @@ namespace Ultrakill_RPG
                 Texterer.InputEnemyNaming();
             }
         }
+        /// <summary>
+        /// Creates a random enemy and adds it to the enemy list a specified number of times.
+        /// </summary>
+        /// <param name="timesRepeated">How many enemies to add.</param>
+        public void EnemyCreatorRandom(int timesRepeated)
+        {
+            for (int i = 0; i < timesRepeated; i++)
+            {
+                Random rnd = new Random();
 
-        public void EnemyCreatorRandom(int timesRepeated){
-        for (int i = 0; i < timesRepeated; i ++){
-            Random rnd = new Random();
-            
-            int enemyInt = rnd.Next(1, 4);
-            
-            if (enemyInt == 1)
-            {
-                EnemyList.AddEnemy(new Filth(),i);
-            }
-            else if (enemyInt == 2)
-            {
-                EnemyList.AddEnemy(new Stray(),i);
-            }
-            else if (enemyInt == 3)
-            {
-                EnemyList.AddEnemy(new Schism(),i);
-            }
-            else if (enemyInt == 4)
-            {
-                EnemyList.AddEnemy(new Cerberus(),i);
+                int enemyInt = rnd.Next(1, 4);
+
+                if (enemyInt == 1)
+                {
+                    EnemyList.AddEnemy(new Filth(), i);
+                }
+                else if (enemyInt == 2)
+                {
+                    EnemyList.AddEnemy(new Stray(), i);
+                }
+                else if (enemyInt == 3)
+                {
+                    EnemyList.AddEnemy(new Schism(), i);
+                }
+                else if (enemyInt == 4)
+                {
+                    EnemyList.AddEnemy(new Cerberus(), i);
+                }
             }
         }
-    }
-
-        /*public void Creator(string nameInput, int enemyCount)
-        {
-            switch (nameInput.ToLower())
-            {
-
-                case "filth":
-                    new Filth();
-                    EnemyList.EnemyListAdder();
-                    break;
-                case "filth":
-                    new Filth();
-                    EnemyList.EnemyListAdder();
-                    break;
-                case "filth":
-                    new Filth();
-                    EnemyList.EnemyListAdder();
-                    break;
-                default:
-                    Console.WriteLine("you miss spelled");
-                    break;
-            }
-        }*/
     }
 }

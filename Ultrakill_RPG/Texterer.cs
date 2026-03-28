@@ -206,6 +206,9 @@ namespace Ultrakill_RPG
             else
             { }
         }
+        /// <summary>
+        /// Select the enemy which the selected player is going to attack.
+        /// </summary>
         public static void EnemySelectionMenu()
         {
             int i = 1;
