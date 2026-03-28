@@ -174,7 +174,7 @@ namespace Ultrakill_RPG
             Console.Clear();
             int i = 1;
 
-            if (selectedPlayer.GetName() == "v1")
+            if (selectedPlayer.GetName().ToLower() == "v1")
             {
                 foreach (AttackType attackType in selectedPlayer.GetAttackList())
                 {
@@ -183,7 +183,7 @@ namespace Ultrakill_RPG
                 }
                 i = 1;
             }
-            else if (selectedPlayer.GetName() == "v2")
+            else if (selectedPlayer.GetName().ToLower() == "v2")
             {
                 foreach (AttackType attackType in selectedPlayer.GetAttackList())
                 {
@@ -192,7 +192,7 @@ namespace Ultrakill_RPG
                 }
                 i = 1;
             }
-            else if (selectedPlayer .GetName() == "gutterman")
+            else if (selectedPlayer .GetName().ToLower() == "gutterman")
             {
                 foreach (AttackType attackType in selectedPlayer.GetAttackList())
                 {
@@ -201,7 +201,7 @@ namespace Ultrakill_RPG
                 }
                 i = 1;
             }
-            else if (selectedPlayer.GetName() == "guttertank")
+            else if (selectedPlayer.GetName().ToLower() == "guttertank")
             {
                 foreach (AttackType attackType in selectedPlayer.GetAttackList())
                 {
