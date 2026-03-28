@@ -85,44 +85,89 @@ namespace Ultrakill_RPG
         public static void PlayerActionsMenu()
         {
             int i = 1;
-            foreach (Player player in PlayerList.players)
+            int getBackToActionMenu;
+
+            foreach (string actions in menuActions)
             {
-                if (PlayerList.players[selectedPlayer - 1].GetName() == "V1")
+                Console.WriteLine($"{i}) {actions}");
+                i++;
+            }
+            i = 1;
+            selectedPlayerAction = int.Parse(Console.ReadLine());
+            if (menuActions[selectedPlayerAction-1].ToLower() == "attacks")
+            {
+                Console.Clear();
+                PlayerAttacksMenu();
+            }
+            else if (menuActions[selectedPlayerAction-1].ToLower() == "stats")
+            {
+                Console.Clear();
+                Console.WriteLine(PlayerList.players[selectedPlayer-1].GetStats()+"type 1 to get back to the action list");
+                getBackToActionMenu = int.Parse(Console.ReadLine());
+                if (getBackToActionMenu == 1)
                 {
-                    foreach (AttackType attackType in player.GetAttackList())
-                    {
-                        Console.WriteLine($"{i} {attackType.GetAttackName()}");
-                        i++;
-                    }
-                    i = 1;
+                    Console.Clear();
+                    getBackToActionMenu = 0;
+                    PlayerActionsMenu();
                 }
-                else if (PlayerList.players[selectedPlayer - 1].GetName() == "V2")
+                else
                 {
-                    foreach (AttackType attackType in player.GetAttackList())
-                    {
-                        Console.WriteLine($"{i} {attackType.GetAttackName()}");
-                        i++;
-                    }
-                    i = 1;
+                    Console.WriteLine("type 1 to get back");
                 }
-                else if (PlayerList.players[selectedPlayer - 1].GetName() == "Gutterman")
+            }
+            else if (menuActions[selectedPlayerAction-1].ToLower() == "back")
+            {
+                Console.Clear();
+                PlayerSelectionMenu();
+            }
+        }
+        public static void PlayerAttacksMenu()
+        {
+            Console.Clear();
+            int i = 1;
+
+            Player selected = PlayerList.players[Texterer.selectedPlayer-1];
+
+            if (selected.GetName() == "v1")
+            {
+                foreach (AttackType attackType in selected.GetAttackList())
                 {
-                    foreach (AttackType attackType in player.GetAttackList())
-                    {
-                        Console.WriteLine($"{i} {attackType.GetAttackName()}");
-                        i++;
-                    }
-                    i = 1;
+                    Console.WriteLine($"{i}) {attackType.GetAttackName()}");
+                    i++;
                 }
-                else if (PlayerList.players[selectedPlayer - 1].GetName() == "Guttertank")
+                i = 1;
+            }
+            else if (selected.GetName() == "v2")
+            {
+                foreach (AttackType attackType in selected.GetAttackList())
                 {
-                    foreach (AttackType attackType in player.GetAttackList())
-                    {
-                        Console.WriteLine($"{i} {attackType.GetAttackName()}");
-                        i++;
-                    }
-                    i = 1;
+                    Console.WriteLine($"{i}) {attackType.GetAttackName()}");
+                    i++;
                 }
+                i = 1;
+            }
+            else if (selected.GetName() == "gutterman")
+            {
+                foreach (AttackType attackType in selected.GetAttackList())
+                {
+                    Console.WriteLine($"{i}) {attackType.GetAttackName()}");
+                    i++;
+                }
+                i = 1;
+            }
+            else if (selected.GetName() == "guttertank")
+            {
+                foreach (AttackType attackType in selected.GetAttackList())
+                {
+                    Console.WriteLine($"{i}) {attackType.GetAttackName()}");
+                    i++;
+                }
+                i = 1;
+            }
+            selectedAttack = int.Parse(Console.ReadLine());
+            if (selectedAttack - 1 < 0 )
+            {
+
             }
         }
     }
