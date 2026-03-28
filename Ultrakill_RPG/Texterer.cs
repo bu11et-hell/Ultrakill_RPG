@@ -23,7 +23,9 @@ namespace Ultrakill_RPG
         public static int selectedEnemyInt;
 
         internal static int enemyCount;
+        //Integare containing the number of players we have.
         internal static int playerCount;
+        // String list of player actions.
         internal static string[] menuActions = {"attacks", "stats", "back"};
         internal bool playerCountRenderer = true;
         //Limit is set and is used in the loop for player object decloration
@@ -83,8 +85,7 @@ namespace Ultrakill_RPG
             Console.WriteLine("LET THE GAME START!!!\n\nSelect options by typing in their coresponding number");
         }
         /// <summary>
-        /// Using foreach, it prints out all the players in the squad and their coresponding number. Then it checks what the input is by making assinging selectedPlayerInt
-        /// the value to be used in checks (if it valid) and to assign a selectedPlayer of Player type (as a shortcut) and to call the actionMenu
+        /// Selects a player to act with.
         /// </summary>
         public static void PlayerSelectionMenu()
         {
@@ -114,6 +115,9 @@ namespace Ultrakill_RPG
                 PlayerActionsMenu();
             }
         }
+        /// <summary>
+        /// Action selection menu for the players. Choose between attacks, stats and going back into the previous menu.
+        /// </summary>
         public static void PlayerActionsMenu()
         {
             int i = 1;
@@ -162,6 +166,9 @@ namespace Ultrakill_RPG
                 }
             }
         }
+        /// <summary>
+        /// Shows attacks menu avalible for selected player character (For example Piercer for V1)
+        /// </summary>
         public static void PlayerAttacksMenu()
         {
             Console.Clear();
@@ -213,6 +220,9 @@ namespace Ultrakill_RPG
             else
             { }
         }
+        /// <summary>
+        /// Select the enemy which the selected player is going to attack.
+        /// </summary>
         public static void EnemySelectionMenu()
         {
             int i = 1;
