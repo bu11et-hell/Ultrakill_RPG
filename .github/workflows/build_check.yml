@@ -19,7 +19,7 @@ jobs:
         dotnet-version: '8.x' # Change to your target .NET version
 
     - name: Restore dependencies
-      run: dotnet restore "YourProjectName.csproj"
+      run: dotnet restore "Ultrakill_RPG.sln"
 
     - name: Build
       run: dotnet build "Ultrakill_RPG.sln" --configuration Release --no-restore
