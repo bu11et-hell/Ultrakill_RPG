@@ -59,6 +59,9 @@ namespace Ultrakill_RPG
             Console.Clear();
             Console.WriteLine("LET THE GAME START!!!\n\nSelect options by typing in their coresponding number");
         }
+        /// <summary>
+        /// Selects a player to act with.
+        /// </summary>
         public static void PlayerSelectionMenu()
         {
             int i = 1;
@@ -87,6 +90,9 @@ namespace Ultrakill_RPG
                 PlayerActionsMenu();
             }
         }
+        /// <summary>
+        /// Action selection menu for the players. Choose between attacks, stats and going back into the previous menu.
+        /// </summary>
         public static void PlayerActionsMenu()
         {
             int i = 1;
@@ -126,6 +132,9 @@ namespace Ultrakill_RPG
                 PlayerSelectionMenu();
             }
         }
+        /// <summary>
+        /// Shows attacks menu avalible for selected player character (For example Piercer for V1)
+        /// </summary>
         public static void PlayerAttacksMenu()
         {
             Console.Clear();
