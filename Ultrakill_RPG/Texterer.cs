@@ -12,22 +12,31 @@ namespace Ultrakill_RPG
         public static int selectedPlayerAction;
         //Player to be used in all checks
         public static Player selectedPlayer;
+        public static AttackType selectedAttack;
+        public static Enemy selectedEnemy;
         //Temporary ones to be used in defining the Player type ones
         public static int selectedPlayerInt;
-        public static int selectedAttack;
-        public static int selectedEnemy;
+        public static int selectedAttackInt;
+        public static int selectedEnemyInt;
 
         internal static int enemyCount;
         internal static int playerCount;
         internal static string[] menuActions = {"attacks", "stats", "back"};
         internal bool playerCountRenderer = true;
         //Limit is set and is used in the loop for player object decloration
-        
+        /// <summary>
+        /// Method InputPlayerCount, asks the user how many players characters they want in their game
+        /// </summary>
         public static void InputPlayerCount()
         {
             Console.WriteLine("How many players?");
             playerCount = int.Parse(Console.ReadLine());
         }
+        /// <summary>
+        /// Method InputPlayerNaming, asks the user what player character they want to have in the squad.
+        /// it has a loop in it that will create new player objects of the coresponding type and add them
+        /// to the list with players
+        /// </summary>
         public static void InputPlayerNaming()
         {
             Console.WriteLine("Enter players (V1/V2/Gutterman/Guttertank)");
@@ -39,11 +48,19 @@ namespace Ultrakill_RPG
             }
         }
         //Same but for the enemies
+        /// <summary>
+        /// Method InputEnemyCount, asks the user how many enemies characters they want in their game
+        /// </summary>
         public static void InputEnemyCount()
         {
             Console.WriteLine("How many enemies?");
             enemyCount = int.Parse(Console.ReadLine());
         }
+        /// <summary>
+        /// Method InputEnemyNaming, asks the user what enemy character they want to have in the squad.
+        /// it has a loop in it that will create new enemy objects of the coresponding type and add them
+        /// to the list with enemies
+        /// </summary>
         public static void InputEnemyNaming()
         {
             Console.WriteLine("Enter enemies (filth/stray/schism/cerberus)");
@@ -54,11 +71,18 @@ namespace Ultrakill_RPG
                 EnemyCreator.EnemyDeclarator(enemyNameInput, i);
             }
         }
+        /// <summary>
+        /// Printed to let us now that the game has started
+        /// </summary>
         public static void GameStartText()
         {
             Console.Clear();
             Console.WriteLine("LET THE GAME START!!!\n\nSelect options by typing in their coresponding number");
         }
+        /// <summary>
+        /// Using foreach, it prints out all the players in the squad and their coresponding number. Then it checks what the input is by making assinging selectedPlayerInt
+        /// the value to be used in checks (if it valid) and to assign a selectedPlayer of Player type (as a shortcut) and to call the actionMenu
+        /// </summary>
         public static void PlayerSelectionMenu()
         {
             int i = 1;
@@ -167,20 +191,43 @@ namespace Ultrakill_RPG
                 }
                 i = 1;
             }
-            selectedAttack = int.Parse(Console.ReadLine());
-            if (selectedAttack - 1 < 0 )
+            selectedAttackInt = int.Parse(Console.ReadLine());
+            if (selectedAttackInt - 1 < 0 || selectedAttackInt > selectedPlayer.attackList.Count())
             {
-
+                Console.Clear();
+                Console.WriteLine("Not a valid option");
+                Texterer.PlayerAttacksMenu();
             }
-            selectedAttack = int.Parse(Console.ReadLine());
-            if (selectedAttack - 1 < 0 )
-            {
-
-            }
+            else
+            { }
         }
-        public static void EnemySelectMenu()
+        public static void EnemySelectionMenu()
         {
-            
+            int i = 1;
+
+            Console.WriteLine();
+            foreach (Enemy enemy in EnemyList.enemies)
+            {
+                enemy.UI_nameAndStatus_Update();
+                Console.WriteLine($"{i}) {enemy.GetUIStatusEnemyName()}");
+                i++;
+            }
+            i = 1;
+            Console.WriteLine();
+            Console.Write("Select Player: ");
+            selectedEnemyInt = int.Parse(Console.ReadLine());
+            if (selectedEnemyInt - 1 < 0 || selectedEnemyInt > EnemyList.enemies.Count())
+            {
+                Console.Clear();
+                Console.WriteLine("Select an actual Enemy");
+                EnemySelectionMenu();
+            }
+            else
+            {
+                Console.Clear();
+                selectedEnemy = EnemyList.enemies[selectedEnemyInt - 1];
+                
+            }
         }
     }
 }
