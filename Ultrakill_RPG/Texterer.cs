@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.Design;
 using System.Globalization;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 
 namespace Ultrakill_RPG
@@ -124,6 +125,15 @@ namespace Ultrakill_RPG
                     i = 1;
                 }
             }
+            selectedAttack = int.Parse(Console.ReadLine());
+            if (selectedAttack - 1 < 0 )
+            {
+
+            }
+        }
+        public static void EnemySelectMenu()
+        {
+            
         }
     }
 }
