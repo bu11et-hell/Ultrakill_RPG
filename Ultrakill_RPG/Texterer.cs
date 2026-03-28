@@ -9,7 +9,7 @@ namespace Ultrakill_RPG
 {
     public class Texterer
     {
-        public static string[] enemyOptions = {"attack", "show stats", "back"};
+        public static string[] enemyOptions = {"attack?", "show stats", "back"};
 
         public static int selectedEnemyOption;
         public static int selectedPlayerAction;
@@ -263,6 +263,7 @@ namespace Ultrakill_RPG
             selectedEnemyOption = int.Parse(Console.ReadLine());
             if (selectedEnemyOption - 1 < 0 || selectedEnemyOption > selectedEnemy.attackList.Count())
             {
+                Console.Clear();
                 Console.WriteLine("Selecet propper option");
             }
         }
