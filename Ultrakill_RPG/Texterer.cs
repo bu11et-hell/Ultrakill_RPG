@@ -9,7 +9,7 @@ namespace Ultrakill_RPG
 {
     public class Texterer
     {
-        public static string[] enemyOptions = {"attack?", "show stats", "back"};
+        public static string[] enemyOptions = {"attack?", "view stats", "back"};
 
         public static int selectedEnemyOption;
         public static int selectedPlayerAction;
@@ -142,6 +142,10 @@ namespace Ultrakill_RPG
                     Console.Clear();
                     PlayerAttacksMenu();
                 }
+                else if (menuActions[selectedPlayerAction - 1].ToLower() == "stats")
+                {
+                    PlayerStatViewerMenu();
+                }
                 else if (menuActions[selectedPlayerAction - 1].ToLower() == "back")
                 {
                     Console.Clear();
@@ -153,8 +157,7 @@ namespace Ultrakill_RPG
         {
             int getBackToActionMenu;
 
-            if (menuActions[selectedPlayerAction - 1].ToLower() == "stats")
-            {
+            
                 Console.Clear();
                 Console.WriteLine($"{selectedPlayer.GetStats()} type 1 to get back to the action list");
                 getBackToActionMenu = int.Parse(Console.ReadLine());
@@ -170,7 +173,6 @@ namespace Ultrakill_RPG
                     Console.WriteLine("type 1 to get back");
                     PlayerStatViewerMenu();
                 }
-            }
         }
         /// <summary>
         /// Shows attacks menu avalible for selected player character (For example Piercer for V1)
@@ -284,27 +286,33 @@ namespace Ultrakill_RPG
                 }
                 else if (enemyOptions[selectedEnemyOption - 1] == "view stats")
                 {
-                    Console.Clear();
-                    Console.WriteLine($"{selectedEnemy.GetStats()} type 1 to get back to the action list");
-                    getBackToOptions = int.Parse(Console.ReadLine());
-                    if (getBackToOptions == 1)
-                    {
-                        Console.Clear();
-                        getBackToOptions = 0;
-                        EnemyActionMenu();
-                    }
-                    else
-                    {
-                        Console.Clear();
-                        Console.WriteLine("type 1 to get back");
-                        Console.WriteLine($"{selectedEnemy.GetStats()} type 1 to get back to the action list");
-                    }
+                    EnemyStatViewerMenu();
                 }
                 else if (enemyOptions[selectedEnemyOption - 1] == "back")
                 {
                     Console.Clear();
                     EnemySelectionMenu();
                 }
+            }
+        }
+        public static void EnemyStatViewerMenu()
+        {
+            int getBackToOptions = 0;
+            
+            Console.Clear();
+            Console.WriteLine($"{selectedEnemy.GetStats()} type 1 to get back to the action list");
+            getBackToOptions = int.Parse(Console.ReadLine());
+            if (getBackToOptions == 1)
+            {
+                Console.Clear();
+                getBackToOptions = 0;
+                EnemyActionMenu();
+            }
+            else
+            {
+                Console.Clear();
+                Console.WriteLine("type 1 to get back");
+                EnemyStatViewerMenu();
             }
         }
     }
