@@ -10,7 +10,6 @@ namespace Ultrakill_RPG
         protected double health;
 
         public List<AttackType> attackList;
-        
 
         public string UI_statusPlayerName;
         public void UI_nameAndStatus_Update()
@@ -53,7 +52,6 @@ namespace Ultrakill_RPG
         {
             return this.UI_statusPlayerName;
         }
-
         public List<AttackType> GetAttackList()
         {
             return attackList;

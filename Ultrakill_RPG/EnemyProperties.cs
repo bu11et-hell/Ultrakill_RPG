@@ -6,6 +6,7 @@ using System.Reflection;
 using System.Reflection.Metadata.Ecma335;
 using System.Runtime.CompilerServices;
 using System.Text;
+using Ultrakill_RPG;
 
 namespace Ultrakill_RPG
 {
@@ -16,26 +17,29 @@ namespace Ultrakill_RPG
         protected double resistance;
         protected double health;
 
+        public List<AttackType> attackList;
+
         protected string UI_statusEnemyName;
         public string UI_nameAndStatus_Update()
         {
             return this.UI_statusEnemyName = $"{name} Health: {health}";
         }
-        public Enemy(string name, double resistance, double health)
+        public Enemy(string name, double resistance, double health, List<AttackType> attackList)
         {
             this.name = name;
             this.resistance = resistance;
             this.health = health;
+            this.attackList = attackList;
         }
         public string GetName()
         {
             return this.name;
         }
-        public double GetResistance() 
+        public double GetResistance()
         {
             return this.resistance;
         }
-        public double GetHealth() 
+        public double GetHealth()
         {
             return this.health;
         }
@@ -47,52 +51,34 @@ namespace Ultrakill_RPG
         {
             return this.UI_statusEnemyName;
         }
+        public List<AttackType> GetAttackList()
+        {
+            return attackList;
+        }
     }
     internal class Filth : Enemy
     {
-        public Filth() : base(name : "Filth", resistance : 0, health : 0.5)
+        public Filth() : base(name : "Filth", resistance : 0, health : 0.5, attackList : new List<AttackType> { new AttackType("leap", 30), new AttackType("bite", 30)})
         {
-        }
-
-        public void AttackMassage()
-        {
-            Console.WriteLine($"{name} Leaps and bites dealing  damage");
         }
     }
     internal class Stray : Enemy
     {
 
-        public Stray() : base(name : "Stray", resistance : 0, health : 1.5)
+        public Stray() : base(name : "Stray", resistance : 0, health : 1.5, attackList : new List<AttackType> { new AttackType("hellorb", 25)})
         {
-        }
-
-        public void AttackMassage()
-        {
-            Console.WriteLine($"Throws a hellorb and  deals");
         }
     }
     internal class Schism : Enemy
     {
-
-        public Schism() : base(name: "Schism", resistance: 0, health: 5)
+        public Schism() : base(name: "Schism", resistance: 0, health: 5, attackList : new List<AttackType> { new AttackType("vertical beam", 25), new AttackType("horizontal beam", 25)})
         {
-        }
-
-        public void AttackMassage()
-        {
-            Console.WriteLine($"Throws a hellorb and  deals");
         }
     }
     internal class Cerberus : Enemy
     {
-
-        public Cerberus() : base(name: "Cererus", resistance: 0, health: 22)
+        public Cerberus() : base(name: "Cererus", resistance: 0, health: 22, attackList : new List<AttackType> { new AttackType("stomp", 25), new AttackType("explosive orb", 20), new AttackType("Dash", 25)})
         {
-        }
-
-        public void AttackMassage()
-        {
-            Console.WriteLine($"Throws a hellorb and  deals");
         }
     }
 
