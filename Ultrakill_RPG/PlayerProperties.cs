@@ -13,7 +13,6 @@ namespace Ultrakill_RPG
         protected double health;
 
         public List<AttackType> attackList;
-        
 
         public string UI_statusPlayerName;
         /// <summary>
