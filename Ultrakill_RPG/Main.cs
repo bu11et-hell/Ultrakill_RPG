@@ -9,9 +9,11 @@ namespace Ultrakill_RPG
     {
         public static void Main()
         {
-            string loopGameQuiestion = "0";
+            PlayerList.players.Clear();
+            EnemyList.enemies.Clear();
+            string loopGameQuiestion = "yes";
 
-            while (loopGameQuiestion is not "yes" and not "y" and not "1")
+            while (loopGameQuiestion is "yes" or "y" or "1")
             {
                 Console.Clear();
                 Texterer.InputEnemyCount();

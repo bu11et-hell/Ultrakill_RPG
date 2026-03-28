@@ -4,12 +4,12 @@ using System.Text;
 
 namespace Ultrakill_RPG
 {
-    internal class GameLogic
+    public class GameLogic
     {
         /// <summary>
         /// Unimplemented. Do not use.
         /// </summary>
-        public void AttackCheck()
+        public static void AttackCheck()
         {
             
         }
