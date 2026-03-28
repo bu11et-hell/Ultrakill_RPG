@@ -1,0 +1,25 @@
+name: .NET Build Check
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '8.x' # Change to your target .NET version
+
+    - name: Restore dependencies
+      run: dotnet restore "Ultrakill_RPG.sln"
+
+    - name: Build
+      run: dotnet build "Ultrakill_RPG.sln" --configuration Release --no-restore

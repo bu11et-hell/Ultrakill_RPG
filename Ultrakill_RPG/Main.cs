@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32.SafeHandles;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -8,15 +9,23 @@ namespace Ultrakill_RPG
     {
         public static void Main()
         {
-            Texterer.InputEnemyCount();
-            Texterer.InputEnemyNaming();
-            Texterer.InputPlayerCount();
-            Texterer.InputPlayerNaming();
-            //Game starts here
-            Texterer.GameStartText();
-            //Player selection
-            Texterer.PlayerSelectionMenu();
-            Texterer.PlayerActionsMenu();
+            string loopGameQuiestion;
+
+            do
+            {
+                Console.Clear();
+                Texterer.InputEnemyCount();
+                Texterer.InputEnemyNaming();
+                Texterer.InputPlayerCount();
+                Texterer.InputPlayerNaming();
+                //Game starts here
+                Texterer.GameStartText();
+                //Player selection
+                Texterer.PlayerSelectionMenu();
+                Console.WriteLine("loop?");
+                loopGameQuiestion = Console.ReadLine();
+            }
+            while (loopGameQuiestion is "yes" or "y" or "1");
         }
     }
 }
