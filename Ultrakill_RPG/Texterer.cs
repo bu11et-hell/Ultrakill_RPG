@@ -21,6 +21,7 @@ namespace Ultrakill_RPG
 
         internal static int enemyCount;
         internal static int playerCount;
+        // String list of player actions.
         internal static string[] menuActions = {"attacks", "stats", "back"};
         internal bool playerCountRenderer = true;
         //Limit is set and is used in the loop for player object decloration
