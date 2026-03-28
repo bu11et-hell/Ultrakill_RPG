@@ -2,9 +2,11 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Avalonia;
 
 namespace Ultrakill_RPG
 {
+    /*
     internal class Program
     {
         public static void Main()
@@ -28,5 +30,18 @@ namespace Ultrakill_RPG
                 loopGameQuiestion = Console.ReadLine();
             }
         }
+    }
+    */
+    // Program.cs
+    class Program
+    {
+        [STAThread]
+        public static void Main(string[] args) =>
+            BuildAvaloniaApp().StartWithClassicDesktopLifetime(args);
+
+        public static AppBuilder BuildAvaloniaApp() =>
+            AppBuilder.Configure<App>()
+                .UsePlatformDetect()
+                .LogToTrace();
     }
 }
