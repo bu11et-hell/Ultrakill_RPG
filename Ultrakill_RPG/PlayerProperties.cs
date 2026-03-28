@@ -11,7 +11,7 @@ namespace Ultrakill_RPG
 /// </summary>
 public class V1 : GameObject
 {
-    public V1() : base(name: "V1", resistance: 0, health: 100, attackList: new List<AttackType> { new AttackType("Piercer", 7.5), new AttackType("Projectile Boost", 3.5), new AttackType("Projectile Boost", 3.5), new AttackType("Railcannon", 8) })
+    public V1() : base(name: "V1", resistance: 0, health: 100, attackList: new List<AttackType> { new AttackType("Piercer", 7.5), new AttackType("Projectile Boost", 3.5), new AttackType("Railcannon", 8) })
     {
 
     }
@@ -21,7 +21,7 @@ public class V1 : GameObject
 /// </summary>
 public class V2 : GameObject
 {
-    public V2() : base(name: "V2", resistance: 65, health: 100, attackList: new List<AttackType> { new AttackType("Piercer", 7.5), new AttackType("Projectile Boost", 3.5), new AttackType("Projectile Boost", 3.5), new AttackType("Railcannon", 8) })
+    public V2() : base(name: "V2", resistance: 65, health: 100, attackList: new List<AttackType> { new AttackType("Piercer", 7.5), new AttackType("Projectile Boost", 3.5), new AttackType("Railcannon", 8) })
     {
 
     }

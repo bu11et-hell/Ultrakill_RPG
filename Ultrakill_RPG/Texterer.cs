@@ -205,7 +205,7 @@ namespace Ultrakill_RPG
             {
                 foreach (AttackType attackType in selectedPlayer.GetAttackList())
                 {
-                    Console.WriteLine($"{i}) {attackType.GetAttackName()}");
+                    Console.WriteLine($"{i}) {attackType.GetAttackName()} ()");
                     i++;
                 }
                 i = 1;
