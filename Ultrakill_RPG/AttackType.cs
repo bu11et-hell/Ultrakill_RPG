@@ -43,17 +43,13 @@ namespace Ultrakill_RPG
         {
             return this.damage;
         }
-        public string GetAttackMassage()
+        public string GetAttackMassage(AttackType selectedAttack)
         {
             return this.massage;
         }
-        public static double FinalDamageCheck(double objectResistance, double incomingAttackDamage, GameObject selectedEnemy)
+        public static double FinalDamageCheck(double objectResistance, double incomingAttackDamage)
         {
             return finalDamageValue = incomingAttackDamage * objectResistance;
-            if (Texterer.selectedPlayer.GetName() == "v1")
-            {
-                Texterer.selectedPlayer.Heal(selectedEnemy);
-            }
         }
     }
 }
