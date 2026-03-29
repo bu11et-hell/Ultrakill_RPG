@@ -6,8 +6,6 @@ namespace Ultrakill_RPG
 {
     public class GameLogic
     {
-        private 
-        
         public static string AttackMassage(GameObject attackerObject, GameObject selectedObject, AttackType selectedAttack)
         {
             return $"{attackerObject.GetName()} used {selectedAttack.GetAttackName()} and dealt {selectedObject.damageTaken} dmg to {selectedObject.GetName()}";
