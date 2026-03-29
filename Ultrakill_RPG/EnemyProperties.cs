@@ -15,7 +15,7 @@ namespace Ultrakill_RPG
     /// </summary>
     internal class Filth : GameObject
     {
-        public Filth() : base(name: "Filth", resistance: 0, health: 0.5, attackList : new List<AttackType> { new AttackType("leap", 30), new AttackType("bite", 30)})
+        public Filth() : base(name: "Filth", resistance: 0, health: 0.5, maxHealth: 0.5, attackList : new List<AttackType> { new AttackType("leap", 30, $"leaps and deals dmg"), new AttackType("bite", 30, $"bites and deals dmg")})
         {
         }
     }
@@ -25,7 +25,7 @@ namespace Ultrakill_RPG
     internal class Stray : GameObject
     {
 
-        public Stray() : base(name: "Stray", resistance: 0, health: 1.5, attackList : new List<AttackType> { new AttackType("hellorb", 25)})
+        public Stray() : base(name: "Stray", resistance: 0, health: 1.5, maxHealth: 1.5, attackList : new List<AttackType> { new AttackType("hellorb", 25, $"throws hellorb and deals dmg")})
         {
         }
     }
@@ -35,7 +35,7 @@ namespace Ultrakill_RPG
 
     internal class Schism : GameObject
     {
-        public Schism() : base(name: "Schism", resistance: 0, health: 5, attackList : new List<AttackType> { new AttackType("vertical beam", 25), new AttackType("horizontal beam", 25)})
+        public Schism() : base(name: "Schism", resistance: 0, health: 5, maxHealth: 5, attackList : new List<AttackType> { new AttackType("vertical beam", 25, $"shoots vertical beam and deals dmg"), new AttackType("horizontal beam", 25, $"shoots horizontal beam and deals dmg")})
         {
         }
     }
@@ -44,7 +44,7 @@ namespace Ultrakill_RPG
     /// </summary>
     internal class Cerberus : GameObject
     {
-        public Cerberus() : base(name: "Cererus", resistance: 0, health: 22, attackList : new List<AttackType> { new AttackType("stomp", 25), new AttackType("explosive orb", 20), new AttackType("Dash", 25)})
+        public Cerberus() : base(name: "Cererus", resistance: 0, health: 22, maxHealth: 22, attackList : new List<AttackType> { new AttackType("stomp", 25, $"stomps on the ground and deals dmg"), new AttackType("explosive orb", 20, $"throws explosive orb and deals dmg"), new AttackType("Dash", 25, $"dashes and deals dmg")})
         {
         }
     }

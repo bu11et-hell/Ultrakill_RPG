@@ -11,7 +11,7 @@ namespace Ultrakill_RPG
 /// </summary>
 public class V1 : GameObject
 {
-    public V1() : base(name: "V1", resistance: 0, health: 100, attackList: new List<AttackType> { new AttackType("Piercer", 7.5), new AttackType("Projectile Boost", 3.5), new AttackType("Railcannon", 8) })
+    public V1() : base(name: "V1", resistance: 0, health: 100, maxHealth : 100, attackList: new List<AttackType> { new AttackType("Piercer", 7.5, $"V1 charges a piercer shot and deals dmg"), new AttackType("Projectile Boost", 3.5, $"V1 punches his bullets and deals dmg"), new AttackType("Railcannon", 8, $"V1 fires a railcannon shot and deals dmg")})
     {
 
     }
@@ -21,7 +21,7 @@ public class V1 : GameObject
 /// </summary>
 public class V2 : GameObject
 {
-    public V2() : base(name: "V2", resistance: 65, health: 100, attackList: new List<AttackType> { new AttackType("Piercer", 7.5), new AttackType("Projectile Boost", 3.5), new AttackType("Railcannon", 8) })
+    public V2() : base(name: "V2", resistance: 65, health: 100, maxHealth : 100, attackList: new List<AttackType> { new AttackType("Piercer", 7.5, $"V2 charges a piercer shot and deals dmg"), new AttackType("Projectile Boost", 3.5, $"V2 punches his bullets and deals dmg"), new AttackType("Railcannon", 8, $"V2 fires a railcannon shot and deals dmg")})
     {
 
     }
@@ -32,7 +32,7 @@ public class V2 : GameObject
 
 public class Gutterman : GameObject
 {
-    public Gutterman() : base(name: "Gutterman", resistance: 75, health: 25, attackList: new List<AttackType> { new AttackType("Minigun", 20), new AttackType("Melle Attack", 35) })
+    public Gutterman() : base(name: "Gutterman", resistance: 75, health: 25, maxHealth : 25, attackList: new List<AttackType> { new AttackType("Minigun", 20, $"Gutterman fires up his minigun and deals dmg"), new AttackType("Melle Attack", 35, $"Gutterman makes a melle attack and deals dmg")})
     {
 
     }
@@ -42,7 +42,7 @@ public class Gutterman : GameObject
 /// </summary>
 public class Guttertank : GameObject
 {
-    public Guttertank() : base(name: "Guttertank", resistance: 0, health: 23, attackList: new List<AttackType> { new AttackType("Rocket", 35), new AttackType("Melle Attack", 35) })
+    public Guttertank() : base(name: "Guttertank", resistance: 0, health: 23, maxHealth : 23, attackList: new List<AttackType> { new AttackType("Rocket", 35, $"Guttertank fires a rocket and deals dmg"), new AttackType("Melle Attack", 35, $"Guttertank makes a melle attack and deals dmg")})
     {
 
     }

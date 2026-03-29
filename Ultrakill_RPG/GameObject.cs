@@ -8,6 +8,8 @@ namespace Ultrakill_RPG
         protected string name;
         protected double resistance;
         protected double health;
+        protected double maxHealth;
+        public double damageTaken;
 
         public List<AttackType> attackList;
 
@@ -20,7 +22,38 @@ namespace Ultrakill_RPG
         {
             return this.UI_statusName = $"{name} Health: {health}";
         }
-        public GameObject(string name, double resistance, double health, List<AttackType> attackList)
+        public void DealDamage(GameObject attackerObject, GameObject selectedObject, AttackType selectedAttack)
+        {
+            selectedObject.TakeDamage(selectedObject.GetResistance(), selectedAttack.GetAttackDamage());
+            if (attackerObject.GetName() == "v1")
+            {
+                attackerObject.V1Heal(attackerObject);
+            }
+        }
+        public double TakeDamage(double resistance, double incomingAttackDamage)
+        {
+            this.health = this.health - AttackType.FinalDamageCheck(resistance, incomingAttackDamage);
+            this.damageTaken = AttackType.FinalDamageCheck(resistance, incomingAttackDamage);
+            UI_nameAndStatus_Update();
+            if (this.health < 0)
+            {
+                this.health = 0;
+            }
+            return this.health;
+        }
+        public double V1Heal(GameObject v1) 
+        {
+            this.health = this.health + Math.Round(((v1.maxHealth/3) * 100), 2);
+            if (this.health > maxHealth)
+            {
+                return this.health = maxHealth;
+            }
+            else 
+            {
+                return this.health;
+            }
+        }
+        public GameObject(string name, double resistance, double health, double maxHealth, List<AttackType> attackList)
         {
             this.name = name;
             this.resistance = resistance;

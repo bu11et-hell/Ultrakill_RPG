@@ -110,9 +110,18 @@ namespace Ultrakill_RPG
             }
             else
             {
-                Console.Clear();
-                selectedPlayer = PlayerList.players[selectedPlayerInt - 1];
-                PlayerActionsMenu();
+                if (PlayerList.players[selectedPlayerInt - 1].GetHealth() <= 0)
+                {
+                    Console.Clear();
+                    Console.WriteLine("Player is dead, Please choose another one");
+                    PlayerSelectionMenu();
+                }
+                else
+                {
+                    Console.Clear();
+                    selectedPlayer = PlayerList.players[selectedPlayerInt - 1];
+                    PlayerActionsMenu();
+                }
             }
         }
         /// <summary>
@@ -227,6 +236,7 @@ namespace Ultrakill_RPG
             }
             else
             {
+                selectedAttack = selectedPlayer.attackList[selectedAttackInt - 1];
                 EnemySelectionMenu();
             }
         }
@@ -257,9 +267,15 @@ namespace Ultrakill_RPG
             }
             else
             {
-                Console.Clear();
-                selectedEnemy = EnemyList.enemies[selectedEnemyInt - 1];
-                EnemyActionMenu();
+                if (EnemyList.enemies[selectedEnemyInt - 1].GetHealth() <= 0)
+                {
+                    Console.Clear();
+                    Console.WriteLine("Enemy is already dead. Please choose another option");
+                    EnemySelectionMenu();
+                }
+                    Console.Clear();
+                    selectedEnemy = EnemyList.enemies[selectedEnemyInt - 1];
+                    EnemyActionMenu();
             }
         }
         public static void EnemyActionMenu()
@@ -282,7 +298,7 @@ namespace Ultrakill_RPG
             {
                 if (enemyOptions[selectedEnemyOption - 1] == "attack?")
                 {
-                    GameLogic.AttackCheck();
+                    GameLogic.PlayerAttackLogic(selectedPlayer, selectedEnemy, selectedAttack);
                 }
                 else if (enemyOptions[selectedEnemyOption - 1] == "view stats")
                 {
