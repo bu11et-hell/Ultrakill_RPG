@@ -6,6 +6,7 @@
              x:Class="Ultrakill_RPG.GameSetupUserControl">
     <StackPanel>
         <TextBlock Text="Game Setup" TextAlignment="Center" FontSize="35"/>
-        <Button Content="Click me"></Button>
+        <TextBlock Text="Enter player names, devided by , Valid names are: V1, V2, Gutterman, Guttertank" TextAlignment="Center" FontSize="15"/>
+        <TextBox Watermark="Enter player names" HorizontalAlignment="Center"/>
     </StackPanel>
 </UserControl>
