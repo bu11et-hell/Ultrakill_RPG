@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.ConstrainedExecution;
 using System.Text;
 
 namespace Ultrakill_RPG
@@ -10,22 +11,27 @@ namespace Ultrakill_RPG
     public class AttackType
     {
         protected string name;
-        protected double damageDealth;
+        protected string massage;
+        protected double damage;
+        protected static double finalDamageValue;
 
         /// <summary>
         /// Constructor for the AttackType class.
         /// </summary>
         /// <param name="name">Name of the attack.</param>
         /// <param name="damageDealth">Damage dealt by the attack.</param>
-        public AttackType(string name, double damageDealth) {
+        public AttackType(string name, double damage, string massage)
+        {
             this.name = name;
-            this.damageDealth = damageDealth;
+            this.massage = massage;
+            this.damage = damage;
         }
         /// <summary>
         /// Gets the attack name
         /// </summary>
         /// <returns>String</returns>
-        public string GetAttackName(){
+        public string GetAttackName()
+        {
             return this.name;
         }
 
@@ -33,8 +39,21 @@ namespace Ultrakill_RPG
         /// Gets the attack damage
         /// </summary>
         /// <returns>Double</returns>
-        public double GetAttackDamage(){
-            return this.damageDealth;
+        public double GetAttackDamage()
+        {
+            return this.damage;
+        }
+        public string GetAttackMassage()
+        {
+            return this.massage;
+        }
+        public static double FinalDamageCheck(double objectResistance, double incomingAttackDamage, GameObject selectedEnemy)
+        {
+            return finalDamageValue = incomingAttackDamage * objectResistance;
+            if (Texterer.selectedPlayer.GetName() == "v1")
+            {
+                Texterer.selectedPlayer.Heal(selectedEnemy);
+            }
         }
     }
 }

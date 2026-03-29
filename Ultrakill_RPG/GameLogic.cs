@@ -7,11 +7,22 @@ namespace Ultrakill_RPG
     public class GameLogic
     {
         /// <summary>
-        /// Unimplemented. Do not use.
+        /// Checks if the attack coming from the platers is correct.
         /// </summary>
-        public static void AttackCheck()
+        public static void PlayerAttackLogic(GameObject selectedPlayer, GameObject selectedEnemy, AttackType selectedAttack)
         {
-            
+            selectedEnemy.TakeDamage();
+        }
+        public static void GameEndedCheck()
+        {
+            if (PlayerList.players.Count() == 0)
+            {
+                Console.WriteLine("You have lost");
+            }
+            else if (EnemyList.enemies.Count() == 0)
+            {
+                Console.WriteLine("You have won");
+            }
         }
     }
 }
