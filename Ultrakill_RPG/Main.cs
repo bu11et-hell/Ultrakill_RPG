@@ -17,7 +17,7 @@ namespace Ultrakill_RPG
                 EnemyList.enemies.Clear();
                 Console.Clear();
                 Texterer.InputEnemyCount();
-                Texterer.InputEnemyNaming();
+                Texterer.RandomEnemiesQuestion();
                 Texterer.InputPlayerCount();
                 Texterer.InputPlayerNaming();
                 //Game starts here

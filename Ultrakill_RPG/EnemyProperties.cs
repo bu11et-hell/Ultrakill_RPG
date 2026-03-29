@@ -15,7 +15,7 @@ namespace Ultrakill_RPG
     /// </summary>
     internal class Filth : GameObject
     {
-        public Filth() : base(name: "Filth", resistance: 0, health: 0.5, maxHealth: 0.5, attackList : new List<AttackType> { new AttackType("leap", 30, $"leaps and deals dmg"), new AttackType("bite", 30, $"bites and deals dmg")})
+        public Filth() : base(name: "Filth", resistance: 1, health: 0.5, maxHealth: 0.5, attackList : new List<AttackType> { new AttackType("leap", 30, $"leaps and deals dmg"), new AttackType("bite", 30, $"bites and deals dmg")})
         {
         }
     }
@@ -25,7 +25,7 @@ namespace Ultrakill_RPG
     internal class Stray : GameObject
     {
 
-        public Stray() : base(name: "Stray", resistance: 0, health: 1.5, maxHealth: 1.5, attackList : new List<AttackType> { new AttackType("hellorb", 25, $"throws hellorb and deals dmg")})
+        public Stray() : base(name: "Stray", resistance: 1, health: 1.5, maxHealth: 1.5, attackList : new List<AttackType> { new AttackType("hellorb", 25, $"throws hellorb and deals dmg")})
         {
         }
     }
@@ -35,7 +35,7 @@ namespace Ultrakill_RPG
 
     internal class Schism : GameObject
     {
-        public Schism() : base(name: "Schism", resistance: 0, health: 5, maxHealth: 5, attackList : new List<AttackType> { new AttackType("vertical beam", 25, $"shoots vertical beam and deals dmg"), new AttackType("horizontal beam", 25, $"shoots horizontal beam and deals dmg")})
+        public Schism() : base(name: "Schism", resistance: 1, health: 5, maxHealth: 5, attackList : new List<AttackType> { new AttackType("vertical beam", 25, $"shoots vertical beam and deals dmg"), new AttackType("horizontal beam", 25, $"shoots horizontal beam and deals dmg")})
         {
         }
     }
@@ -44,7 +44,7 @@ namespace Ultrakill_RPG
     /// </summary>
     internal class Cerberus : GameObject
     {
-        public Cerberus() : base(name: "Cererus", resistance: 0, health: 22, maxHealth: 22, attackList : new List<AttackType> { new AttackType("stomp", 25, $"stomps on the ground and deals dmg"), new AttackType("explosive orb", 20, $"throws explosive orb and deals dmg"), new AttackType("Dash", 25, $"dashes and deals dmg")})
+        public Cerberus() : base(name: "Cererus", resistance: 1, health: 22, maxHealth: 22, attackList : new List<AttackType> { new AttackType("stomp", 25, $"stomps on the ground and deals dmg"), new AttackType("explosive orb", 20, $"throws explosive orb and deals dmg"), new AttackType("Dash", 25, $"dashes and deals dmg")})
         {
         }
     }
@@ -77,36 +77,6 @@ namespace Ultrakill_RPG
                 Console.WriteLine("you made a mistake try again");
                 timesRepeated--;
                 Texterer.InputEnemyNaming();
-            }
-        }
-        /// <summary>
-        /// Creates a random enemy and adds it to the enemy list a specified number of times.
-        /// </summary>
-        /// <param name="timesRepeated">How many enemies to add.</param>
-        public void EnemyCreatorRandom(int timesRepeated)
-        {
-            for (int i = 0; i < timesRepeated; i++)
-            {
-                Random rnd = new Random();
-
-                int enemyInt = rnd.Next(1, 4);
-
-                if (enemyInt == 1)
-                {
-                    EnemyList.AddEnemy(new Filth(), i);
-                }
-                else if (enemyInt == 2)
-                {
-                    EnemyList.AddEnemy(new Stray(), i);
-                }
-                else if (enemyInt == 3)
-                {
-                    EnemyList.AddEnemy(new Schism(), i);
-                }
-                else if (enemyInt == 4)
-                {
-                    EnemyList.AddEnemy(new Cerberus(), i);
-                }
             }
         }
     }

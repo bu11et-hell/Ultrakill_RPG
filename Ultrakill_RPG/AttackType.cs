@@ -13,7 +13,7 @@ namespace Ultrakill_RPG
         protected string name;
         protected string massage;
         protected double damage;
-        protected static double finalDamageValue;
+        protected double finalDamageValue;
 
         /// <summary>
         /// Constructor for the AttackType class.
@@ -46,10 +46,6 @@ namespace Ultrakill_RPG
         public string GetAttackMassage(AttackType selectedAttack)
         {
             return this.massage;
-        }
-        public static double FinalDamageCheck(double objectResistance, double incomingAttackDamage)
-        {
-            return finalDamageValue = incomingAttackDamage * objectResistance;
         }
     }
 }

@@ -10,7 +10,7 @@ namespace Ultrakill_RPG
         private static AttackType enemyAttackSelection;
         public static string AttackMassage(GameObject attackerObject, GameObject selectedObject, AttackType selectedAttack)
         {
-            return $"{attackerObject.GetName()} used {selectedAttack.GetAttackName()} and dealt {selectedObject.damageTaken} dmg to {selectedObject.GetName()}";
+            return $"{attackerObject.GetName()} used {selectedAttack.GetAttackName()} and dealt {selectedObject.damageTaken} dmg to {selectedObject.GetName()}\n";
         }
         /// <summary>
         /// Checks if the attack coming from the platers is correct.
@@ -18,18 +18,17 @@ namespace Ultrakill_RPG
         public static void PlayerAttackLogic(GameObject selectedPlayer, GameObject selectedEnemy, AttackType selectedAttack)
         {
             selectedPlayer.DealDamage(selectedPlayer, selectedEnemy, selectedAttack);
-            AttackMassage(selectedPlayer, selectedEnemy, selectedAttack);
-            Console.WriteLine($"The enemy is down to {selectedEnemy.GetHealth()} health");
-            EnemyDeadChecker(selectedEnemy);
-            EnemyAttackLogic();
+            Console.WriteLine(AttackMassage(selectedPlayer, selectedEnemy, selectedAttack));
+            Console.WriteLine($"The enemy is at to {selectedEnemy.GetHealth()} health");
+            EnemyDeadChecker(selectedEnemy, selectedPlayer);
         }
         public static void EnemyAttackLogic(GameObject selectedEnemy, GameObject selectedPlayer)
         {
             EnemyRandomTargetAndAttack(selectedEnemy);
-            selectedEnemy.DealDamage(selectedEnemy, selectedPlayer, enemyAttackSelection);
-            AttackMassage(selectedEnemy, selectedPlayer, enemyAttackSelection);
-            Console.WriteLine($"The Player is down to {selectedEnemy.GetHealth()} health");
-            PlayerDeadChecker(selectedPlayer);
+            selectedEnemy.DealDamage(selectedEnemy, enemyPlayerSelection, enemyAttackSelection);
+            Console.WriteLine(AttackMassage(selectedEnemy, enemyPlayerSelection, enemyAttackSelection));
+            Console.WriteLine($"The Player is at to {enemyPlayerSelection.GetHealth()} health");
+            PlayerDeadChecker(enemyPlayerSelection);
             GameEndedCheck();
         }
         public static void EnemyRandomTargetAndAttack(GameObject selectedEnemy)
@@ -53,6 +52,10 @@ namespace Ultrakill_RPG
             {
                 Console.WriteLine("You have won");
             }
+            else
+            {
+                Texterer.PlayerSelectionMenu();
+            }
         }
         public static void PlayerDeadChecker(GameObject player)
         {
@@ -61,10 +64,15 @@ namespace Ultrakill_RPG
                 PlayerList.RemovePlayer(player);
             }
         }
-        public static void EnemyDeadChecker(GameObject enemy)
+        public static void EnemyDeadChecker(GameObject enemy, GameObject player)
         {
             if (enemy.GetHealth() <= 0)
-                EnemyList.RemoveEnemy(enemy);
+            {
+                EnemyList.RemoveEnemy(enemy);   
+            }
+            {
+                EnemyAttackLogic(enemy, player);
+            }
         }
     }
 }
