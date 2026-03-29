@@ -2,8 +2,13 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-        x:Class="Ultrakill_RPG.MainWindow"
-        Title="MainWindow">
-    Welcome to Avalonia!
+        xmlns:local="clr-namespace:Ultrakill_RPG"
+        mc:Ignorable="d" d:DesignWidth="600" d:DesignHeight="600"
+        Width="600" Height="600"
+        x:Class="Ultrakill_RPG.MainWindow" CanResize="False" Background="Black" Foreground="White"
+        Title="Ultrakill RPG Battle System">
+        
+        <Panel>
+                <local:GameSetupUserControl HorizontalAlignment="Center" VerticalAlignment="Center"></local:GameSetupUserControl>
+        </Panel>
 </Window>
