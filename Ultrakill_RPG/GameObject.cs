@@ -24,40 +24,41 @@ namespace Ultrakill_RPG
         }
         public void DealDamage(GameObject attackerObject, GameObject selectedObject, AttackType selectedAttack)
         {
-            selectedObject.TakeDamage(selectedObject.GetResistance(), selectedAttack.GetAttackDamage());
-            if (attackerObject.GetName() == "v1")
+            if (attackerObject.GetName() == "V1")
             {
                 attackerObject.V1Heal(attackerObject);
             }
+            selectedObject.TakeDamage(selectedObject.GetResistance(), selectedAttack.GetAttackDamage(), selectedAttack);
         }
-        public double TakeDamage(double resistance, double incomingAttackDamage)
+        public double TakeDamage(double resistance, double incomingAttackDamage, AttackType incomingAttack)
         {
-            this.health = this.health - AttackType.FinalDamageCheck(resistance, incomingAttackDamage);
-            this.damageTaken = AttackType.FinalDamageCheck(resistance, incomingAttackDamage);
-            UI_nameAndStatus_Update();
+            this.health = this.health - incomingAttackDamage;
+            this.damageTaken = incomingAttackDamage;
             if (this.health < 0)
             {
-                this.health = 0;
+                return this.health = 0;
             }
+            UI_nameAndStatus_Update();
             return this.health;
         }
         public double V1Heal(GameObject v1) 
         {
-            this.health = this.health + Math.Round(((v1.maxHealth/3) * 100), 2);
-            if (this.health > maxHealth)
+            this.health = this.health + 33.33;
+            UI_nameAndStatus_Update();
+            if (this.health > this.maxHealth)
             {
-                return this.health = maxHealth;
-            }
-            else 
-            {
+                this.health = 100;
+                UI_nameAndStatus_Update();
                 return this.health;
             }
+            return this.health;
         }
         public GameObject(string name, double resistance, double health, double maxHealth, List<AttackType> attackList)
         {
             this.name = name;
             this.resistance = resistance;
             this.health = health;
+            this.maxHealth = maxHealth;
             this.attackList = attackList;
         }
         /// <summary>

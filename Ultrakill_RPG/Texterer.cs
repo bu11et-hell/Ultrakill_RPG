@@ -61,6 +61,50 @@ namespace Ultrakill_RPG
             Console.WriteLine("How many enemies?");
             enemyCount = int.Parse(Console.ReadLine());
         }
+        public static void RandomEnemiesQuestion()
+        {
+            string answer;
+            Console.WriteLine("do you want random enemies?");
+            answer = Console.ReadLine();
+            if (answer is "yes" or "y" or "1")
+            {
+                EnemyCreatorRandom(enemyCount);
+            }
+            else
+            {
+                InputEnemyNaming();
+            }
+        }
+        /// <summary>
+        /// Creates a random enemy and adds it to the enemy list a specified number of times.
+        /// </summary>
+        /// <param name="timesRepeated">How many enemies to add.</param>
+        public static void EnemyCreatorRandom(int timesRepeated)
+        {
+            for (int i = 0; i < timesRepeated; i++)
+            {
+                Random rnd = new Random();
+                
+                int enemyInt = rnd.Next(1, 5);
+                
+                if (enemyInt == 1)
+                {
+                    EnemyList.AddEnemy(new Filth(), i);
+                }
+                else if (enemyInt == 2)
+                {
+                    EnemyList.AddEnemy(new Stray(), i);
+                }
+                else if (enemyInt == 3)
+                {
+                    EnemyList.AddEnemy(new Schism(), i);
+                }
+                else if (enemyInt == 4)
+                {
+                    EnemyList.AddEnemy(new Cerberus(), i);
+                }
+            }
+        }
         /// <summary>
         /// Method InputEnemyNaming, asks the user what enemy character they want to have in the squad.
         /// it has a loop in it that will create new enemy objects of the coresponding type and add them
@@ -247,6 +291,7 @@ namespace Ultrakill_RPG
         {
             Console.Clear();
             int i = 1;
+            int getBackToPlayerAction;
 
             Console.WriteLine();
             foreach (GameObject enemy in EnemyList.enemies)
@@ -298,6 +343,7 @@ namespace Ultrakill_RPG
             {
                 if (enemyOptions[selectedEnemyOption - 1] == "attack?")
                 {
+                    Console.Clear();
                     GameLogic.PlayerAttackLogic(selectedPlayer, selectedEnemy, selectedAttack);
                 }
                 else if (enemyOptions[selectedEnemyOption - 1] == "view stats")
