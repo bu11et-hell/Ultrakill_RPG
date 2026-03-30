@@ -44,7 +44,7 @@ namespace Ultrakill_RPG
     /// </summary>
     internal class Cerberus : GameObject
     {
-        public Cerberus() : base(name: "Cererus", resistance: 1, health: 22, maxHealth: 22, attackList : new List<AttackType> { new AttackType("stomp", 25, $"stomps on the ground and deals dmg"), new AttackType("explosive orb", 20, $"throws explosive orb and deals dmg"), new AttackType("Dash", 25, $"dashes and deals dmg")})
+        public Cerberus() : base(name: "Cerberus", resistance: 1, health: 22, maxHealth: 22, attackList : new List<AttackType> { new AttackType("stomp", 25, $"stomps on the ground and deals dmg"), new AttackType("explosive orb", 20, $"throws explosive orb and deals dmg"), new AttackType("Dash", 25, $"dashes and deals dmg")})
         {
         }
     }
