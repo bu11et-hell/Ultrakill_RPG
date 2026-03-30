@@ -4,9 +4,21 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="600" d:DesignHeight="600"
              x:Class="Ultrakill_RPG.GameSetupUserControl">
+    <UserControl.Styles>
+        <Style Selector="Button:pointerover /template/ ContentPresenter">
+            <Setter Property="Background" Value="Gray"/>
+        </Style>
+    </UserControl.Styles>
     <StackPanel>
         <TextBlock Text="Game Setup" TextAlignment="Center" FontSize="35"/>
-        <TextBlock Text="Enter player names, devided by , Valid names are: V1, V2, Gutterman, Guttertank" TextAlignment="Center" FontSize="15"/>
+        <TextBlock Text="Enter player names, devided by ," TextAlignment="Center" FontSize="15"/>
+        <TextBlock Text="Valid names are: V1, V2, Gutterman, Guttertank" TextAlignment="Center" FontSize="15"/>
         <TextBox Watermark="Enter player names" HorizontalAlignment="Center"/>
+        <TextBlock Text="Enter enemy names, devided by , or click Random" TextAlignment="Center" FontSize="15"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <TextBox Watermark="Enter enemy names" Width="200"/>
+            <Button Content="Random" Margin="5,0,0,0" Foreground="Black" Background="Gray"/>
+        </StackPanel>
+        <Button Content="Start game!" Margin="5, 0, 0, 0" Foreground="Black" Background="Gray" HorizontalAlignment="Center"/>
     </StackPanel>
 </UserControl>

@@ -8,6 +8,7 @@
         x:Class="Ultrakill_RPG.MainWindow" CanResize="False" Background="Black" Foreground="White"
         Title="Ultrakill RPG Battle System">
         
+        
         <Panel>
                 <local:GameSetupUserControl HorizontalAlignment="Center" VerticalAlignment="Center"></local:GameSetupUserControl>
         </Panel>
