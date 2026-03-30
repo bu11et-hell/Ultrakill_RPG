@@ -30,5 +30,13 @@ public partial class GameSetupUserControl : UserControl
         {
             PlayerCreator.PlayerDeclarator(player, 1);
         }
+        
+        //Handle enemy input
+        string enemyInput = EnemyInput.Text;
+        string[] enemies = enemyInput.Split(' ');
+        foreach (string enemy in enemies)
+        {
+            EnemyCreator.EnemyDeclarator(enemy, 1);
+        }
     }
 }

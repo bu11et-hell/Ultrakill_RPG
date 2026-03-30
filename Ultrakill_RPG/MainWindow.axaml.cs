@@ -14,6 +14,8 @@ public partial class MainWindow : Window
     public MainWindow()
     {
         InitializeComponent();
+
+        MainContent.Content = new GameSetupUserControl();
     }
 
     protected override void OnOpened(EventArgs e)

@@ -10,6 +10,7 @@
         
         
         <Panel>
-                <local:GameSetupUserControl HorizontalAlignment="Center" VerticalAlignment="Center"></local:GameSetupUserControl>
+                <!--<local:GameSetupUserControl HorizontalAlignment="Center" VerticalAlignment="Center"></local:GameSetupUserControl>-->
+                <ContentControl x:Name="MainContent" HorizontalAlignment="Center" VerticalAlignment="Center"></ContentControl>
         </Panel>
 </Window>
