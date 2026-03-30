@@ -11,14 +11,14 @@
     </UserControl.Styles>
     <StackPanel>
         <TextBlock Text="Game Setup" TextAlignment="Center" FontSize="35"/>
-        <TextBlock Text="Enter player names, devided by ," TextAlignment="Center" FontSize="15"/>
+        <TextBlock Text="Enter player names, devided by a space" TextAlignment="Center" FontSize="15"/>
         <TextBlock Text="Valid names are: V1, V2, Gutterman, Guttertank" TextAlignment="Center" FontSize="15"/>
-        <TextBox Watermark="Enter player names" HorizontalAlignment="Center"/>
-        <TextBlock Text="Enter enemy names, devided by , or click Random" TextAlignment="Center" FontSize="15"/>
+        <TextBox x:Name="PlayersInput" Watermark="Enter player names" HorizontalAlignment="Center"/>
+        <TextBlock Text="Enter enemy names, devided by a space or click Random" TextAlignment="Center" FontSize="15"/>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-            <TextBox Watermark="Enter enemy names" Width="200"/>
-            <Button Content="Random" Margin="5,0,0,0" Foreground="Black" Background="Gray"/>
+            <TextBox x:Name="EnemyInput" Watermark="Enter enemy names" Width="200"/>
+            <Button Content="Random" Margin="5,0,0,0" Foreground="Black" Background="Gray" Click="OnRandomClicked"/>
         </StackPanel>
-        <Button Content="Start game!" Margin="5, 0, 0, 0" Foreground="Black" Background="Gray" HorizontalAlignment="Center"/>
+        <Button Content="Start game!" Margin="5, 0, 0, 0" Foreground="Black" Background="Gray" HorizontalAlignment="Center" Click="OnStartClicked"/>
     </StackPanel>
 </UserControl>

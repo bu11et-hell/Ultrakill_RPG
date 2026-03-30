@@ -68,7 +68,7 @@ namespace Ultrakill_RPG
             answer = Console.ReadLine();
             if (answer is "yes" or "y" or "1")
             {
-                EnemyCreatorRandom(enemyCount);
+               // EnemyCreatorRandom(enemyCount);
             }
             else
             {
@@ -78,13 +78,14 @@ namespace Ultrakill_RPG
         /// <summary>
         /// Creates a random enemy and adds it to the enemy list a specified number of times.
         /// </summary>
-        /// <param name="timesRepeated">How many enemies to add.</param>
-        public static void EnemyCreatorRandom(int timesRepeated)
+        public static void EnemyCreatorRandom()
         {
+
+            Random rnd = new Random();
+            int timesRepeated = rnd.Next(1, 20);
+            
             for (int i = 0; i < timesRepeated; i++)
             {
-                Random rnd = new Random();
-                
                 int enemyInt = rnd.Next(1, 5);
                 
                 if (enemyInt == 1)
