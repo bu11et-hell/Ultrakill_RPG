@@ -61,19 +61,19 @@ namespace Ultrakill_RPG
         {
             if (PlayerNameInput.ToLower() == "v1" || PlayerNameInput.ToLower() == "1")
             {
-                PlayerList.AddPlayer(new V1(), timesRepeated);
+                PlayerList.AddPlayer(new V1());
             }
             else if (PlayerNameInput.ToLower() == "v2" || PlayerNameInput.ToLower() == "2")
             {
-                PlayerList.AddPlayer(new V2(), timesRepeated);
+                PlayerList.AddPlayer(new V2());
             }
             else if (PlayerNameInput.ToLower() == "gutterman" || PlayerNameInput.ToLower() == "3")
             {
-                PlayerList.AddPlayer(new Gutterman(), timesRepeated);
+                PlayerList.AddPlayer(new Gutterman());
             }
             else if (PlayerNameInput.ToLower() == "guttertank" || PlayerNameInput.ToLower() == "4")
             {
-                PlayerList.AddPlayer(new Guttertank(), timesRepeated);
+                PlayerList.AddPlayer(new Guttertank());
             }
             else
             {

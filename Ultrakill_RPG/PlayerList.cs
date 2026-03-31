@@ -16,9 +16,9 @@ namespace Ultrakill_RPG
         /// </summary>
         /// <param name="playerObject">The player object to add.</param>
         /// <param name="timesRepeated">The index at which to insert the player.</param>
-        public static void AddPlayer(GameObject playerObject,int timesRepeated)
+        public static void AddPlayer(GameObject playerObject)
         {
-            players.Insert(timesRepeated, playerObject);
+            players.Add(playerObject);
         }
         /// <summary>
         ///  Removes a player from the list.
