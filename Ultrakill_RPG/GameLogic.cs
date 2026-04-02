@@ -70,6 +70,7 @@ namespace Ultrakill_RPG
             {
                 EnemyList.RemoveEnemy(enemy);   
             }
+            else
             {
                 EnemyAttackLogic(enemy, player);
             }
