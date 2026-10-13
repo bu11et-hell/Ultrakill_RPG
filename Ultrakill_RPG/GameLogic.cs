@@ -21,6 +21,7 @@ namespace Ultrakill_RPG
             Console.WriteLine(AttackMassage(selectedPlayer, selectedEnemy, selectedAttack));
             Console.WriteLine($"The enemy is at to {selectedEnemy.GetHealth()} health");
             EnemyDeadChecker(selectedEnemy, selectedPlayer);
+            GameEndedCheck();
         }
         public static void EnemyAttackLogic(GameObject selectedEnemy, GameObject selectedPlayer)
         {
